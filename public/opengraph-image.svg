@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#11100e"/>
+  <path d="M0 470 230 220l135 120 180-225 245 280 120-125 290 280v80H0Z" fill="#c89535"/>
+  <path d="m75 405 155-162 61 54-131 108Zm264 0 207-258 225 258Z" fill="#11100e"/>
+  <text x="70" y="130" fill="#f4eddf" font-family="Arial, sans-serif" font-size="92" font-weight="800">ÉPICOS</text>
+  <text x="75" y="188" fill="#c89535" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="12">TANDIL</text>
+  <text x="70" y="565" fill="#f4eddf" font-family="Arial, sans-serif" font-size="46" font-weight="600">Diseños que se hacen notar.</text>
+</svg>

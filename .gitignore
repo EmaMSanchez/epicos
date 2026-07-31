@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Local tooling and generated artifacts
+.opencode/
+.impeccable/
+artifacts/
+scripts/screenshots.mjs
+DESIGN.md
+PRODUCT.md
+logo.jpg
+
+# Source photos not used by the site
+WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-23 at 15.31.49 (1).jpeg
+WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-23 at 15.31.50.jpeg
+WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-23 at 15.31.50 (1).jpeg
+
+# Environment files and logs
+.env*
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
