@@ -396,6 +396,165 @@ button {
   margin-right: 9px;
 }
 
+.families {
+  background: var(--paper-bright);
+  padding: clamp(92px, 11vw, 170px) clamp(22px, 5vw, 84px);
+}
+
+.families-heading {
+  align-items: end;
+  display: grid;
+  gap: clamp(28px, 8vw, 130px);
+  grid-template-columns: 1.2fr 0.8fr;
+  margin-bottom: clamp(38px, 5vw, 70px);
+}
+
+.families-heading h2 {
+  font-family: var(--display);
+  font-size: clamp(54px, 7vw, 96px);
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+  margin: 0;
+  max-width: 10ch;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.families-heading p {
+  color: var(--muted-on-light);
+  margin: 0 0 7px;
+  max-width: 52ch;
+}
+
+.family-grid {
+  display: grid;
+  gap: clamp(16px, 2vw, 28px);
+  grid-template-columns: 1.35fr 0.65fr;
+  grid-template-rows: repeat(2, clamp(215px, 20vw, 290px));
+}
+
+.family-card {
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(20px, 2.4vw, 34px);
+  position: relative;
+}
+
+.family-ferneteros {
+  grid-row: 1 / 3;
+  justify-content: flex-end;
+}
+
+.family-ferneteros::after {
+  background: rgba(17, 16, 14, 0.86);
+  content: "";
+  inset: auto 0 0;
+  height: 31%;
+  pointer-events: none;
+  position: absolute;
+}
+
+.family-ferneteros img {
+  aspect-ratio: 3 / 4;
+  bottom: auto !important;
+  height: calc(100% - 28px) !important;
+  left: 50% !important;
+  object-fit: cover;
+  object-position: center;
+  right: auto !important;
+  top: 14px !important;
+  transform: translateX(-50%);
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms ease;
+  width: auto !important;
+}
+
+.family-ferneteros:hover img {
+  filter: saturate(1.08);
+  transform: translateX(-50%) scale(1.015);
+}
+
+.family-index,
+.family-name,
+.family-action {
+  position: relative;
+  z-index: 2;
+}
+
+.family-index {
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.family-name {
+  font-family: var(--display);
+  font-size: clamp(48px, 5.8vw, 88px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.family-action {
+  align-items: center;
+  display: flex;
+  font-size: 13px;
+  font-weight: 800;
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.family-coming {
+  justify-content: space-between;
+}
+
+.family-coming .family-name {
+  font-size: clamp(40px, 4.2vw, 62px);
+  z-index: 2;
+}
+
+.family-termicos {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.family-termicos .family-index {
+  color: #49350e;
+}
+
+.family-mates {
+  background: var(--blue);
+}
+
+.family-outline {
+  bottom: -0.18em;
+  color: transparent;
+  font-family: var(--display);
+  font-size: clamp(210px, 28vw, 450px);
+  font-weight: 700;
+  line-height: 0.7;
+  opacity: 0.18;
+  pointer-events: none;
+  position: absolute;
+  right: -0.03em;
+  -webkit-text-stroke: 1px currentColor;
+}
+
+.family-termicos .family-outline {
+  color: var(--ink);
+}
+
+.family-mates .family-outline {
+  color: var(--paper);
+}
+
 .catalog {
   padding: clamp(86px, 11vw, 168px) clamp(22px, 5vw, 84px);
 }
@@ -866,8 +1025,27 @@ footer > p {
   }
 
   .section-heading,
+  .families-heading,
   .wholesale {
     grid-template-columns: 1fr;
+  }
+
+  .family-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: clamp(460px, 78vw, 590px) clamp(210px, 37vw, 265px);
+  }
+
+  .family-ferneteros {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .family-ferneteros img {
+    transform: translateX(-50%);
+  }
+
+  .family-ferneteros:hover img {
+    transform: translateX(-50%) scale(1.015);
   }
 
   .section-heading p {
@@ -1039,6 +1217,19 @@ footer > p {
   .custom-copy h2,
   .wholesale h2 {
     font-size: clamp(52px, 17vw, 76px);
+  }
+
+  .family-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: clamp(430px, 122vw, 500px) repeat(2, 200px);
+  }
+
+  .family-ferneteros {
+    grid-column: auto;
+  }
+
+  .family-coming .family-name {
+    font-size: 46px;
   }
 
   .catalog-tools {

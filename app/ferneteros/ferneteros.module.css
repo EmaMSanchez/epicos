@@ -1,0 +1,597 @@
+.page {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  min-height: calc(100svh - 88px);
+  overflow: hidden;
+  padding: clamp(54px, 7vw, 100px) clamp(22px, 5vw, 84px) 0;
+  position: relative;
+}
+
+.hero::before {
+  background: var(--gold);
+  clip-path: polygon(62% 0, 100% 0, 82% 100%, 16% 100%);
+  content: "";
+  inset: 0 -4% 0 44%;
+  opacity: 0.08;
+  position: absolute;
+}
+
+.heroCopy {
+  align-self: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1,
+.storyIntro h2,
+.storyCopy h2,
+.collectionHeading h2,
+.productBody h3,
+.closing h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+  margin: 0;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.hero h1 {
+  font-size: clamp(78px, 12vw, 180px);
+  margin-left: -0.045em;
+}
+
+.heroCopy > p {
+  color: var(--muted-on-dark);
+  font-size: clamp(18px, 1.6vw, 24px);
+  margin: 26px 0 0;
+}
+
+.heroActions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 38px;
+}
+
+.heroActions a {
+  align-items: center;
+  display: flex;
+  font-size: 13px;
+  font-weight: 800;
+  gap: 8px;
+}
+
+.heroActions a:first-child {
+  background: var(--gold);
+  color: var(--ink);
+  min-height: 54px;
+  padding: 14px 22px;
+}
+
+.heroObject {
+  align-self: stretch;
+  min-height: 620px;
+  overflow: hidden;
+  position: relative;
+}
+
+.heroObject img {
+  object-fit: contain;
+  object-position: center bottom;
+  z-index: 2;
+}
+
+.heroObject > span {
+  color: transparent;
+  font-family: var(--display);
+  font-size: clamp(150px, 20vw, 320px);
+  font-weight: 700;
+  left: 50%;
+  line-height: 0.75;
+  opacity: 0.13;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  -webkit-text-stroke: 1px var(--paper);
+}
+
+.storyIntro {
+  background: var(--paper);
+  color: var(--ink);
+  display: grid;
+  gap: clamp(36px, 9vw, 150px);
+  grid-template-columns: 1.2fr 0.8fr;
+  padding: clamp(110px, 15vw, 230px) clamp(22px, 7vw, 112px);
+}
+
+.storyIntro h2 {
+  font-size: clamp(62px, 8vw, 118px);
+  max-width: 10ch;
+}
+
+.storyIntro p {
+  align-self: end;
+  color: var(--muted-on-light);
+  font-size: clamp(17px, 1.4vw, 21px);
+  margin: 0 0 8px;
+  max-width: 46ch;
+}
+
+.story {
+  --story-progress: 0;
+  background: var(--ink);
+  height: 240svh;
+  position: relative;
+}
+
+.stickyScene {
+  display: grid;
+  gap: clamp(24px, 5vw, 84px);
+  grid-template-columns: minmax(300px, 0.8fr) minmax(380px, 1.2fr);
+  height: 100svh;
+  overflow: hidden;
+  padding: clamp(44px, 6vw, 86px) clamp(22px, 7vw, 112px);
+  position: sticky;
+  top: 0;
+}
+
+.storyCopy {
+  align-self: center;
+  min-height: 360px;
+  position: relative;
+  z-index: 4;
+}
+
+.storyCopy > div {
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-50% + 22px));
+  transition: opacity 420ms ease, transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.storyCopy > .activeChapter {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.storyCopy h2 {
+  font-size: clamp(58px, 6.2vw, 98px);
+}
+
+.storyCopy p {
+  color: var(--muted-on-dark);
+  font-size: clamp(16px, 1.3vw, 19px);
+  margin: 28px 0 0;
+  max-width: 40ch;
+}
+
+.storyVisual {
+  align-self: center;
+  height: min(82svh, 900px);
+  justify-self: center;
+  max-width: 580px;
+  overflow: hidden;
+  position: relative;
+  width: min(100%, 580px);
+}
+
+.storyImage {
+  inset: 0;
+  position: absolute;
+  will-change: opacity, transform, filter;
+}
+
+.storyImage img {
+  object-fit: contain;
+}
+
+.storyFront {
+  opacity: calc(1 - var(--story-progress));
+}
+
+.storyBack {
+  opacity: var(--story-progress);
+}
+
+.sideLabel {
+  background: var(--gold);
+  bottom: 22px;
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 900;
+  left: 0;
+  letter-spacing: 0.14em;
+  padding: 10px 14px;
+  position: absolute;
+  text-transform: uppercase;
+  z-index: 4;
+}
+
+.progressTrack {
+  background: var(--line-dark);
+  bottom: 24px;
+  height: 2px;
+  left: clamp(22px, 7vw, 112px);
+  position: absolute;
+  right: clamp(22px, 7vw, 112px);
+}
+
+.progressTrack span {
+  background: var(--gold);
+  display: block;
+  height: 100%;
+  transform: scaleX(var(--story-progress));
+  transform-origin: left;
+  width: 100%;
+}
+
+.collection {
+  background: var(--paper);
+  color: var(--ink);
+  padding: clamp(100px, 13vw, 200px) clamp(22px, 6vw, 100px);
+}
+
+.collectionHeading {
+  align-items: end;
+  display: grid;
+  gap: clamp(34px, 8vw, 140px);
+  grid-template-columns: 1.2fr 0.8fr;
+  margin-bottom: clamp(64px, 9vw, 130px);
+}
+
+.collectionHeading h2 {
+  font-size: clamp(62px, 8vw, 116px);
+}
+
+.collectionHeading p {
+  color: var(--muted-on-light);
+  margin: 0 0 8px;
+  max-width: 48ch;
+}
+
+.productGrid {
+  display: grid;
+  gap: clamp(22px, 3vw, 46px);
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.productCard {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-column: span 6;
+  min-height: 790px;
+}
+
+.productCard2 {
+  margin-top: 120px;
+}
+
+.productCard3 {
+  grid-column: span 5;
+}
+
+.productCard4 {
+  grid-column: span 7;
+  margin-top: 70px;
+}
+
+.productPhoto {
+  background: var(--paper-bright);
+  min-height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.productPhoto img {
+  animation: view-in 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  object-fit: cover;
+}
+
+.productPhoto > span {
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 900;
+  left: 0;
+  letter-spacing: 0.14em;
+  padding: 9px 12px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+  z-index: 2;
+}
+
+@keyframes view-in {
+  from { opacity: 0.35; transform: scale(1.018); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.productBody {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 3vw, 40px);
+}
+
+.format {
+  color: var(--gold-light);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.productBody h3 {
+  font-size: clamp(42px, 4.5vw, 68px);
+  margin-top: 12px;
+}
+
+.description {
+  color: var(--muted-on-dark);
+  margin: 16px 0 0;
+  max-width: 46ch;
+}
+
+.demoLabel {
+  color: var(--muted-on-dark);
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  margin: 26px 0 0;
+  text-transform: uppercase;
+}
+
+.viewPicker {
+  display: flex;
+  gap: 8px;
+  margin-top: 9px;
+}
+
+.viewPicker button {
+  background: transparent;
+  border: 1px solid var(--line-dark);
+  color: var(--muted-on-dark);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+  min-height: 40px;
+  padding: 8px 15px;
+}
+
+.viewPicker button:hover,
+.viewPicker .activeView {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.productBuy {
+  align-items: end;
+  border-top: 1px solid var(--line-dark);
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.productBuy > span {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.productBuy small {
+  color: var(--muted-on-dark);
+  font-family: var(--body);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.productBuy a {
+  align-items: center;
+  color: var(--gold-light);
+  display: flex;
+  font-size: 12px;
+  font-weight: 800;
+  gap: 6px;
+}
+
+.closing {
+  align-items: center;
+  background: var(--blue);
+  display: flex;
+  flex-direction: column;
+  min-height: 720px;
+  padding: 110px 22px;
+  text-align: center;
+}
+
+.closing h2 {
+  font-size: clamp(78px, 11vw, 160px);
+  max-width: 9ch;
+}
+
+.closing p {
+  color: var(--paper);
+  font-size: 18px;
+  margin: 28px 0 34px;
+  max-width: 50ch;
+}
+
+.closing a {
+  align-items: center;
+  background: var(--gold);
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 850;
+  gap: 9px;
+  min-height: 54px;
+  padding: 14px 22px;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 74px;
+  }
+
+  .heroObject {
+    height: 680px;
+    min-height: 0;
+  }
+
+  .storyIntro,
+  .collectionHeading {
+    grid-template-columns: 1fr;
+  }
+
+  .story {
+    height: 220svh;
+  }
+
+  .stickyScene {
+    gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.72fr 1.28fr;
+    padding-bottom: 38px;
+    padding-top: 22px;
+  }
+
+  .storyCopy {
+    min-height: 210px;
+  }
+
+  .storyCopy h2 {
+    font-size: clamp(50px, 12vw, 76px);
+  }
+
+  .storyCopy p {
+    font-size: 14px;
+    margin-top: 16px;
+    max-width: 46ch;
+  }
+
+  .storyVisual {
+    height: 100%;
+    width: min(88vw, 480px);
+  }
+
+  .sideLabel {
+    bottom: 8px;
+  }
+
+  .productCard,
+  .productCard2,
+  .productCard3,
+  .productCard4 {
+    grid-column: span 12;
+    margin-top: 0;
+    min-height: 0;
+  }
+
+  .productCard2,
+  .productCard4 {
+    justify-self: end;
+    width: 88%;
+  }
+
+  .productCard3 {
+    width: 82%;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero h1 {
+    font-size: clamp(70px, 23vw, 104px);
+  }
+
+  .heroObject {
+    height: 500px;
+  }
+
+  .storyIntro h2,
+  .collectionHeading h2 {
+    font-size: clamp(54px, 16vw, 76px);
+  }
+
+  .storyCopy h2 {
+    font-size: 48px;
+  }
+
+  .storyCopy p {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .productPhoto {
+    min-height: 120vw;
+  }
+
+  .productBody {
+    padding: 26px 20px;
+  }
+
+  .productBuy {
+    align-items: start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .closing {
+    min-height: 620px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story {
+    height: auto;
+  }
+
+  .stickyScene {
+    grid-template-columns: 1fr;
+    min-height: 100svh;
+    position: relative;
+  }
+
+  .storyCopy {
+    min-height: 300px;
+  }
+
+  .storyVisual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 900px;
+    width: 100%;
+  }
+
+  .storyImage {
+    height: 76svh;
+    inset: auto;
+    position: relative;
+  }
+
+  .storyFront {
+    opacity: 1;
+  }
+
+  .storyBack {
+    opacity: 1;
+  }
+}

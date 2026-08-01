@@ -3,48 +3,16 @@
 import Image from "next/image";
 import { startTransition, useState } from "react";
 import packaging from "../WhatsApp Unknown 2026-07-31 at 17.16.39/ejemplo packaging.jpeg";
-import { products, type ProductFamily, whatsappUrl } from "./data";
+import { ArrowIcon, MountainMark, WhatsAppIcon } from "./components/icons";
+import { SiteFooter, SiteHeader } from "./components/SiteChrome";
+import { products, type ProductTheme, whatsappUrl } from "./data";
 
-const filters: Array<"Todos" | ProductFamily> = ["Todos", "Fútbol", "Clásicos"];
-
-function MountainMark() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 92 38" className="brand-mark">
-      <path d="M2 34 25 9l11 10L51 2l39 32H2Z" fill="currentColor" />
-      <path d="m17 34 8-13 7 6-5 7Zm20 0L52 9l25 25Z" fill="var(--ink)" />
-    </svg>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 20 20" className="icon">
-      <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-    </svg>
-  );
-}
-
-function WhatsAppIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="icon">
-      <path
-        d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3 20.4l1.3-4.7a8.5 8.5 0 1 1 16.2-4Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
-      <path
-        d="M8.3 7.8c.2-.4.4-.4.7-.4h.5l.7 1.8c.1.3 0 .5-.2.7l-.6.7c.7 1.5 1.8 2.5 3.3 3.2l.7-.9c.2-.2.5-.3.7-.2l1.8.8c.3.1.4.3.4.6 0 .7-.4 1.5-1 1.9-.6.4-1.4.6-2.2.4-1.3-.3-2.9-1.1-4.4-2.5C7.8 12.5 7 11 6.8 9.8c-.1-.8.2-1.5.7-1.9.3-.2.6-.2.8-.1Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
+const filters: Array<"Todos" | ProductTheme> = ["Todos", "Fútbol", "Clásicos"];
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("Todos");
   const visibleProducts =
-    activeFilter === "Todos" ? products : products.filter((product) => product.family === activeFilter);
+    activeFilter === "Todos" ? products : products.filter((product) => product.theme === activeFilter);
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -66,24 +34,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
 
-      <header className="site-header">
-        <a className="brand" href="#inicio" aria-label="Épicos Tandil, inicio">
-          <MountainMark />
-          <span className="brand-type">
-            <strong>ÉPICOS</strong>
-            <small>TANDIL</small>
-          </span>
-        </a>
-        <nav aria-label="Navegación principal">
-          <a href="#catalogo">Catálogo</a>
-          <a href="#mayoristas">Mayoristas</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-        <a className="header-action" href={whatsappUrl()} target="_blank" rel="noreferrer">
-          Consultar
-          <ArrowIcon />
-        </a>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="hero" id="inicio">
@@ -179,7 +130,7 @@ export default function Home() {
                     sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 42vw"
                     style={{ objectPosition: product.imagePosition ?? "center" }}
                   />
-                  <span className="product-family">{product.family}</span>
+                  <span className="product-family">{product.theme}</span>
                 </div>
                 <div className="product-info">
                   <div>
@@ -200,6 +151,31 @@ export default function Home() {
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="families" id="familias">
+          <div className="families-heading">
+            <h2>Una forma para cada ritual.</h2>
+            <p>Entrá por el objeto que buscás. Los destacados siguen siendo la selección corta; acá empieza cada colección completa.</p>
+          </div>
+          <div className="family-grid">
+            <a className="family-card family-ferneteros" href="/ferneteros">
+              <Image src="/products/branca-aguila.webp" alt="Vaso fernetero dorado Branca" fill sizes="(max-width: 800px) 100vw, 66vw" />
+              <span className="family-index">Colección disponible</span>
+              <span className="family-name">Ferneteros</span>
+              <span className="family-action">Ver colección <ArrowIcon /></span>
+            </a>
+            <div className="family-card family-coming family-termicos">
+              <span className="family-index">Próximamente</span>
+              <span className="family-name">Térmicos</span>
+              <span className="family-outline" aria-hidden="true">T</span>
+            </div>
+            <div className="family-card family-coming family-mates">
+              <span className="family-index">Próximamente</span>
+              <span className="family-name">Mates</span>
+              <span className="family-outline" aria-hidden="true">M</span>
+            </div>
           </div>
         </section>
 
@@ -260,27 +236,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer>
-        <a className="brand footer-brand" href="#inicio" aria-label="Volver al inicio">
-          <MountainMark />
-          <span className="brand-type">
-            <strong>ÉPICOS</strong>
-            <small>TANDIL</small>
-          </span>
-        </a>
-        <div className="footer-links">
-          <a href="https://www.instagram.com/epicos.tandil" target="_blank" rel="noreferrer">
-            Instagram · @epicos.tandil
-          </a>
-          <a href={whatsappUrl()} target="_blank" rel="noreferrer">
-            WhatsApp · 223 519-5739
-          </a>
-        </div>
-        <p>
-          Las referencias culturales visibles pertenecen a sus respectivos titulares. Épicos Tandil
-          no declara afiliaciones oficiales.
-        </p>
-      </footer>
+      <SiteFooter />
 
       <a className="floating-whatsapp" href={whatsappUrl()} target="_blank" rel="noreferrer" aria-label="Consultar por WhatsApp">
         <WhatsAppIcon />
