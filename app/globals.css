@@ -2,6 +2,7 @@
   --ink: #11100e;
   --ink-soft: #25221d;
   --paper: #f3eddf;
+  --paper-inked: #eae4d7;
   --paper-bright: #fffaf0;
   --gold: #d3a13e;
   --gold-light: #efc66f;
@@ -631,7 +632,7 @@ button {
 }
 
 .product {
-  background: transparent;
+  background: var(--paper-inked);
   color: var(--paper);
   display: grid;
   grid-column: span 5;
@@ -659,7 +660,7 @@ button {
 }
 
 .product-image {
-  background: transparent;
+  background: var(--paper-inked);
   min-height: 420px;
   overflow: hidden;
   position: relative;
