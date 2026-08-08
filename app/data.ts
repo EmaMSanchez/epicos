@@ -1,19 +1,8 @@
-import type { StaticImageData } from "next/image";
-import immortal from "../WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-27 at 12.59.55.jpeg";
-import majestad from "../WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-27 at 12.59.55 (1).jpeg";
-import brancaLabel from "../WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-27 at 11.59.31.jpeg";
-import brancaEagle from "../WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-27 at 11.59.30.jpeg";
-import xeneizePair from "../WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-23 at 15.44.24.jpeg";
-import xeneizeBack from "../WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-23 at 15.31.50.jpeg";
-import xeneizeFront from "../WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-23 at 15.31.50 (1).jpeg";
-import argentinaBack from "../WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-23 at 15.31.49.jpeg";
-import argentinaFront from "../WhatsApp Unknown 2026-07-31 at 17.16.39/WhatsApp Image 2026-07-23 at 15.31.49 (1).jpeg";
-
 export type ProductTheme = "Fútbol" | "Clásicos";
-export type ProductKind = "Fernetero" | "Térmico" | "Mate";
+export type ProductKind = "Vaso tubo" | "Térmico" | "Fernetero";
 
 export type ProductImage = {
-  src: StaticImageData;
+  src: string;
   label: string;
   alt: string;
   position?: string;
@@ -27,71 +16,187 @@ export type Product = {
   theme: ProductTheme;
   format: string;
   price: string;
-  image: StaticImageData;
+  image: string;
   imagePosition?: string;
   images: ProductImage[];
 };
 
-// Precios de muestra: reemplazar estos valores antes de publicar.
 export const products: Product[] = [
   {
-    slug: "inmortal-10",
-    name: "Inmortal 10",
-    description: "Retrato en alto contraste y tipografía envolvente sobre negro mate.",
-    kind: "Fernetero",
-    theme: "Fútbol",
-    format: "Vaso fernetero",
-    price: "$ 14.900",
-    image: immortal,
-    images: [
-      { src: immortal, label: "Frente", alt: "Vaso negro Inmortal 10, cara con retrato" },
-      { src: majestad, label: "Dorso", alt: "Vaso negro Inmortal 10, cara con frase tipográfica" },
-    ],
-  },
-  {
-    slug: "branca-dorado",
+    slug: "branca-dorado-tubo",
     name: "Branca Dorado",
-    description: "Coronados y emblema clásico, dos caras sobre una base dorada.",
-    kind: "Fernetero",
+    description: "Gráfica clásica en negro sobre una superficie dorada de alto impacto.",
+    kind: "Vaso tubo",
     theme: "Clásicos",
-    format: "Vaso fernetero",
-    price: "$ 13.500",
-    image: brancaLabel,
+    format: "Vaso tubo 1 L",
+    price: "$ 7.500",
+    image: "/products/catalog/vasos-tubo/branca-frente.webp",
     images: [
-      { src: brancaLabel, label: "Coronados", alt: "Vaso Branca dorado, cara Coronados" },
-      { src: brancaEagle, label: "Águila", alt: "Vaso Branca dorado, cara con águila y emblema" },
+      { src: "/products/catalog/vasos-tubo/branca-frente.webp", label: "Frente", alt: "Frente del vaso tubo Branca Dorado con águila y emblema" },
+      { src: "/products/catalog/vasos-tubo/branca-dorso.webp", label: "Dorso", alt: "Dorso del vaso tubo Branca Dorado con etiqueta ilustrada" },
     ],
   },
   {
-    slug: "xeneize-10",
+    slug: "inmortal-10-tubo",
+    name: "Inmortal 10",
+    description: "Retrato en alto contraste sobre dorado, con el número diez como pieza central.",
+    kind: "Vaso tubo",
+    theme: "Fútbol",
+    format: "Vaso tubo 1 L",
+    price: "$ 7.500",
+    image: "/products/catalog/vasos-tubo/inmortal-frente.webp",
+    images: [
+      { src: "/products/catalog/vasos-tubo/inmortal-frente.webp", label: "Frente", alt: "Frente dorado del vaso tubo Inmortal 10" },
+      { src: "/products/catalog/vasos-tubo/inmortal-dorso.webp", label: "Dorso", alt: "Dorso dorado del vaso tubo Inmortal 10" },
+    ],
+  },
+  {
+    slug: "argentina-termico",
+    name: "Argentina",
+    description: "Celeste, blanco y dorado en un térmico compacto con tapa.",
+    kind: "Térmico",
+    theme: "Fútbol",
+    format: "Térmico 380 ml",
+    price: "$ 5.000",
+    image: "/products/catalog/termicos/argentina-frente.webp",
+    images: [
+      { src: "/products/catalog/termicos/argentina-frente.webp", label: "Frente", alt: "Frente del vaso térmico Argentina celeste y blanco" },
+    ],
+  },
+  {
+    slug: "messi-argentina-fernetero",
+    name: "Mesías 10",
+    description: "Silueta, bastones celestes y el diez reunidos en un vaso translúcido.",
+    kind: "Fernetero",
+    theme: "Fútbol",
+    format: "Vaso fernetero 700 ml",
+    price: "$ 8.500",
+    image: "/products/catalog/ferneteros/messi-argentina-frente.webp",
+    images: [
+      { src: "/products/catalog/ferneteros/messi-argentina-frente.webp", label: "Frente", alt: "Frente del vaso fernetero Mesías 10" },
+      { src: "/products/catalog/ferneteros/messi-argentina-dorso.webp", label: "Dorso", alt: "Dorso del vaso fernetero Mesías 10" },
+      { src: "/products/catalog/ferneteros/messi-argentina-detalle.webp", label: "Detalle", alt: "Vista adicional del vaso fernetero Mesías 10" },
+    ],
+  },
+  {
+    slug: "scudetto-1988-tubo",
+    name: "Scudetto 1988",
+    description: "Celeste pleno con dos gráficas históricas que continúan alrededor del vaso.",
+    kind: "Vaso tubo",
+    theme: "Fútbol",
+    format: "Vaso tubo 1 L",
+    price: "$ 7.500",
+    image: "/products/catalog/vasos-tubo/scudetto-frente.webp",
+    images: [
+      { src: "/products/catalog/vasos-tubo/scudetto-frente.webp", label: "Frente", alt: "Frente celeste del vaso tubo Scudetto 1988" },
+      { src: "/products/catalog/vasos-tubo/scudetto-dorso.webp", label: "Dorso", alt: "Dorso celeste del vaso tubo Scudetto 1988" },
+    ],
+  },
+  {
+    slug: "river-10-tubo",
+    name: "River 10",
+    description: "Banda roja, blanco y negro en una composición vertical de cancha.",
+    kind: "Vaso tubo",
+    theme: "Fútbol",
+    format: "Vaso tubo 1 L",
+    price: "$ 7.500",
+    image: "/products/catalog/vasos-tubo/river-10.webp",
+    images: [
+      { src: "/products/catalog/vasos-tubo/river-10.webp", label: "Diseño", alt: "Vaso tubo River 10 blanco con banda roja" },
+    ],
+  },
+  {
+    slug: "boca-10-tubo",
+    name: "Boca 10",
+    description: "Azul y oro con el número diez ocupando el centro de la pieza.",
+    kind: "Vaso tubo",
+    theme: "Fútbol",
+    format: "Vaso tubo 1 L",
+    price: "$ 7.500",
+    image: "/products/catalog/vasos-tubo/boca-10.webp",
+    images: [
+      { src: "/products/catalog/vasos-tubo/boca-10.webp", label: "Diseño", alt: "Vaso tubo Boca 10 azul y oro" },
+    ],
+  },
+  {
+    slug: "boca-termico",
+    name: "Boca",
+    description: "Azul y oro en un térmico con dos caras y tapa a tono.",
+    kind: "Térmico",
+    theme: "Fútbol",
+    format: "Térmico 380 ml",
+    price: "$ 5.000",
+    image: "/products/catalog/termicos/boca-frente.webp",
+    images: [
+      { src: "/products/catalog/termicos/boca-frente.webp", label: "Frente", alt: "Frente del vaso térmico Boca azul y oro" },
+      { src: "/products/catalog/termicos/boca-dorso.webp", label: "Dorso", alt: "Dorso del vaso térmico Boca con el número 10" },
+    ],
+  },
+  {
+    slug: "river-termico",
+    name: "River",
+    description: "Blanco y rojo en un térmico con frente y dorso complementarios.",
+    kind: "Térmico",
+    theme: "Fútbol",
+    format: "Térmico 380 ml",
+    price: "$ 5.000",
+    image: "/products/catalog/termicos/river-frente.webp",
+    images: [
+      { src: "/products/catalog/termicos/river-frente.webp", label: "Frente", alt: "Frente del vaso térmico River blanco con banda roja" },
+      { src: "/products/catalog/termicos/river-dorso.webp", label: "Dorso", alt: "Dorso del vaso térmico River con el número 10" },
+    ],
+  },
+  {
+    slug: "messi-azul-fernetero",
+    name: "Messi Azul",
+    description: "Azul intenso y retrato tipográfico en una pieza de gran presencia.",
+    kind: "Fernetero",
+    theme: "Fútbol",
+    format: "Vaso fernetero 700 ml",
+    price: "$ 8.500",
+    image: "/products/catalog/ferneteros/messi-azul.webp",
+    images: [
+      { src: "/products/catalog/ferneteros/messi-azul.webp", label: "Diseño", alt: "Vaso fernetero Messi Azul" },
+    ],
+  },
+  {
+    slug: "diego-fernetero",
+    name: "Diego 10",
+    description: "Silueta en movimiento y firma sobre una base translúcida.",
+    kind: "Fernetero",
+    theme: "Fútbol",
+    format: "Vaso fernetero 700 ml",
+    price: "$ 8.500",
+    image: "/products/catalog/ferneteros/diego.webp",
+    images: [
+      { src: "/products/catalog/ferneteros/diego.webp", label: "Diseño", alt: "Vaso fernetero Diego 10 translúcido" },
+    ],
+  },
+  {
+    slug: "xeneize-10-fernetero",
     name: "Xeneize 10",
-    description: "Azul y oro en dos vistas inspiradas en la camiseta de cancha.",
+    description: "Azul y oro en dos caras inspiradas en la gráfica de camiseta.",
     kind: "Fernetero",
     theme: "Fútbol",
-    format: "Fernetero 700 ml",
-    price: "$ 12.900",
-    image: xeneizeFront,
+    format: "Vaso fernetero 700 ml",
+    price: "$ 8.500",
+    image: "/products/catalog/ferneteros/xeneize-frente.webp",
     images: [
-      { src: xeneizeFront, label: "Frente", alt: "Fernetero azul Xeneize, cara con franja amarilla" },
-      { src: xeneizeBack, label: "Dorso", alt: "Fernetero azul Xeneize, cara con número 10" },
-      { src: xeneizePair, label: "Ambas caras", alt: "Las dos caras del fernetero Xeneize" },
-    ],
-  },
-  {
-    slug: "argentina-10",
-    name: "Argentina 10",
-    description: "Celeste y blanco translúcido con dos caras de gráfica de selección.",
-    kind: "Fernetero",
-    theme: "Fútbol",
-    format: "Vaso fernetero",
-    price: "$ 12.900",
-    image: argentinaFront,
-    images: [
-      { src: argentinaFront, label: "Frente", alt: "Fernetero Argentina, cara con gráfica vertical" },
-      { src: argentinaBack, label: "Dorso", alt: "Fernetero Argentina, cara con nombre y número 10" },
+      { src: "/products/catalog/ferneteros/xeneize-frente.webp", label: "Frente", alt: "Frente del vaso fernetero Xeneize 10" },
+      { src: "/products/catalog/ferneteros/xeneize-dorso.webp", label: "Dorso", alt: "Dorso del vaso fernetero Xeneize 10" },
     ],
   },
 ];
+
+const featuredSlugs = new Set([
+  "branca-dorado-tubo",
+  "inmortal-10-tubo",
+  "argentina-termico",
+  "messi-argentina-fernetero",
+]);
+
+export const featuredProducts = products.filter((product) => featuredSlugs.has(product.slug));
+export const tubeProducts = products.filter((product) => product.kind === "Vaso tubo");
 
 export const whatsappNumber = "5492235195739";
 
@@ -100,5 +205,10 @@ export function whatsappUrl(product?: Product) {
     ? `Hola Épicos Tandil, quiero consultar por el diseño ${product.name} (${product.format}).`
     : "Hola Épicos Tandil, quiero conocer el catálogo y consultar por un pedido.";
 
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+export function whatsappCategoryUrl(kind: ProductKind) {
+  const message = `Hola Épicos Tandil, quiero consultar por la colección de ${kind.toLocaleLowerCase("es-AR")}.`;
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }

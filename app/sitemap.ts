@@ -8,6 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: baseUrl, changeFrequency: "weekly", priority: 1 },
-    { url: `${baseUrl}/ferneteros`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/vasos-tubo`, changeFrequency: "weekly", priority: 0.9 },
   ];
 }

@@ -8,14 +8,14 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
-  title: "Épicos Tandil | Vasos y mates con diseños que se hacen notar",
+  title: "Épicos Tandil | Vasos con diseños que se hacen notar",
   description:
-    "Vasos ferneteros, térmicos y mates con diseños originales. Catálogo minorista y mayorista de Épicos Tandil. Consultá por WhatsApp.",
+    "Vasos tubo, térmicos y ferneteros con diseños originales. Catálogo minorista y mayorista de Épicos Tandil. Consultá por WhatsApp.",
   keywords: [
     "vasos personalizados Tandil",
+    "vasos tubo 1 litro",
     "vasos ferneteros",
     "vasos térmicos",
-    "mates personalizados",
     "regalos personalizados Argentina",
   ],
   openGraph: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Épicos Tandil",
-    description: "Vasos y mates con diseños que se hacen notar.",
+    description: "Vasos con diseños que se hacen notar.",
     ...(siteUrl ? { images: ["/opengraph-image.svg"] } : {}),
   },
   robots: { index: true, follow: true },

@@ -23,3 +23,13 @@ export function WhatsAppIcon() {
     </svg>
   );
 }
+
+export function InstagramIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="icon">
+      <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="17.4" cy="6.8" r="1.15" fill="currentColor" />
+    </svg>
+  );
+}

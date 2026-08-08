@@ -3,15 +3,12 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ArrowIcon } from "../components/icons";
-import { products, type Product, whatsappUrl } from "../data";
-import styles from "./ferneteros.module.css";
+import { tubeProducts, type Product, whatsappUrl } from "../data";
+import styles from "./vasos-tubo.module.css";
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
   const [activeView, setActiveView] = useState(0);
-  const views = [
-    { src: "/products/branca-archivo.webp", label: "Frente", alt: "Vista de demostración Coronados del vaso Branca dorado" },
-    { src: "/products/branca-aguila.webp", label: "Dorso", alt: "Vista de demostración Águila del vaso Branca dorado" },
-  ];
+  const views = product.images;
   const image = views[activeView];
 
   return (
@@ -33,22 +30,24 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           <h3>{product.name}</h3>
           <p className={styles.description}>{product.description}</p>
         </div>
-        <p className={styles.demoLabel}>Vistas de demostración · Branca Dorado</p>
-        <div className={styles.viewPicker} aria-label={`Vistas de demostración en ${product.name}`}>
-          {views.map((view, viewIndex) => (
-            <button
-              type="button"
-              className={viewIndex === activeView ? styles.activeView : ""}
-              aria-pressed={viewIndex === activeView}
-              onClick={() => setActiveView(viewIndex)}
-              key={view.label}
-            >
-              {view.label}
-            </button>
-          ))}
-        </div>
+        <p className={styles.demoLabel}>{views.length > 1 ? `${views.length} vistas del diseño` : "Vista disponible"}</p>
+        {views.length > 1 && (
+          <div className={styles.viewPicker} aria-label={`Vistas de ${product.name}`}>
+            {views.map((view, viewIndex) => (
+              <button
+                type="button"
+                className={viewIndex === activeView ? styles.activeView : ""}
+                aria-pressed={viewIndex === activeView}
+                onClick={() => setActiveView(viewIndex)}
+                key={view.src}
+              >
+                {view.label}
+              </button>
+            ))}
+          </div>
+        )}
         <div className={styles.productBuy}>
-          <span><small>Precio de referencia</small>{product.price}</span>
+          <span><small>Precio</small>{product.price}</span>
           <a href={whatsappUrl(product)} target="_blank" rel="noreferrer">
             Consultar <ArrowIcon />
           </a>
@@ -58,9 +57,11 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
   );
 }
 
-export default function FerneterosExperience() {
+export default function VasosTuboExperience() {
   const storyRef = useRef<HTMLElement>(null);
   const [chapter, setChapter] = useState(0);
+  const featuredProduct = tubeProducts[0];
+  const [front, back] = featuredProduct.images;
 
   useEffect(() => {
     const story = storyRef.current;
@@ -118,22 +119,22 @@ export default function FerneterosExperience() {
           <div className={styles.storyCopy} aria-live="polite">
             <div className={chapter === 0 ? styles.activeChapter : ""}>
               <h2>Una pieza.<br />Dos relatos.</h2>
-              <p>El frente presenta Coronados en tinta oscura. El vaso no se mueve: la gráfica es la que toma el escenario.</p>
+              <p>El frente presenta el emblema sobre una superficie dorada.</p>
             </div>
             <div className={chapter === 1 ? styles.activeChapter : ""}>
-              <h2>El emblema<br />da la vuelta.</h2>
-              <p>Al avanzar, aparece la segunda cara. Águila, globo y tipografía conviven sobre el mismo dorado.</p>
+              <h2>La gráfica<br />da la vuelta.</h2>
+              <p>Al avanzar aparece la segunda cara, con la etiqueta ilustrada recorriendo el mismo dorado.</p>
             </div>
           </div>
 
-          <div className={styles.storyVisual} role="img" aria-label="Las dos caras del vaso Branca Dorado cambian con el desplazamiento">
+          <div className={styles.storyVisual} role="img" aria-label={`Las dos caras del vaso tubo ${featuredProduct.name} cambian con el desplazamiento`}>
             <div className={`${styles.storyImage} ${styles.storyFront}`}>
-              <Image src="/products/branca-archivo.webp" alt="" fill priority sizes="(max-width: 760px) 86vw, 42vw" />
+              <Image src={front.src} alt="" fill priority sizes="(max-width: 760px) 86vw, 42vw" />
             </div>
             <div className={`${styles.storyImage} ${styles.storyBack}`}>
-              <Image src="/products/branca-aguila.webp" alt="" fill sizes="(max-width: 760px) 86vw, 42vw" />
+              <Image src={back.src} alt="" fill sizes="(max-width: 760px) 86vw, 42vw" />
             </div>
-            <span className={styles.sideLabel}>{chapter === 0 ? "Coronados" : "Águila"}</span>
+            <span className={styles.sideLabel}>{chapter === 0 ? front.label : back.label}</span>
           </div>
 
           <div className={styles.progressTrack} aria-hidden="true"><span /></div>
@@ -143,10 +144,10 @@ export default function FerneterosExperience() {
       <section className={styles.collection} id="disenos">
         <div className={styles.collectionHeading}>
           <h2>Elegí la pieza.<br />Después mirá el otro lado.</h2>
-          <p>Cuatro ferneteros, cada uno con sus vistas reunidas. Cambiá de cara y consultá el diseño que te representa.</p>
+          <p>Cinco vasos tubo de 1 litro, cada uno con sus vistas disponibles. Cambiá de cara y consultá el diseño que te representa.</p>
         </div>
         <div className={styles.productGrid}>
-          {products.filter((product) => product.kind === "Fernetero").map((product, index) => (
+          {tubeProducts.map((product, index) => (
             <ProductCard product={product} index={index} key={product.slug} />
           ))}
         </div>

@@ -2,17 +2,24 @@
 
 import Image from "next/image";
 import { startTransition, useState } from "react";
-import packaging from "../WhatsApp Unknown 2026-07-31 at 17.16.39/ejemplo packaging.jpeg";
 import { ArrowIcon, MountainMark, WhatsAppIcon } from "./components/icons";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
-import { products, type ProductTheme, whatsappUrl } from "./data";
+import { featuredProducts, type ProductTheme, whatsappCategoryUrl, whatsappUrl } from "./data";
 
 const filters: Array<"Todos" | ProductTheme> = ["Todos", "Fútbol", "Clásicos"];
+const heroSelection = [
+  { slug: "messi-argentina-fernetero", label: "Mesías" },
+  { slug: "inmortal-10-tubo", label: "Inmortal 10" },
+  { slug: "argentina-termico", label: "Argentina" },
+].map(({ slug, label }) => ({
+  product: featuredProducts.find((product) => product.slug === slug)!,
+  label,
+}));
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("Todos");
   const visibleProducts =
-    activeFilter === "Todos" ? products : products.filter((product) => product.theme === activeFilter);
+    activeFilter === "Todos" ? featuredProducts : featuredProducts.filter((product) => product.theme === activeFilter);
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -41,7 +48,7 @@ export default function Home() {
           <div className="hero-copy">
             <h1>Tu ritual.<br />Tu diseño.</h1>
             <p>
-              Vasos y mates serigrafiados para quienes no eligen lo de siempre. Encontrá el tuyo o
+              Vasos tubo, ferneteros y térmicos serigrafiados para quienes no eligen lo de siempre. Encontrá el tuyo o
               armá un pedido para tu gente.
             </p>
             <div className="hero-actions">
@@ -58,24 +65,24 @@ export default function Home() {
 
           <div className="record-bin" aria-label="Selección destacada de productos">
             <div className="bin-backdrop" aria-hidden="true">ÉPICOS</div>
-            {products.slice(0, 3).map((product, index) => (
+            {heroSelection.map(({ product, label }, index) => (
               <a
                 className={`record-cover record-cover-${index + 1}`}
                 href={whatsappUrl(product)}
                 target="_blank"
                 rel="noreferrer"
                 key={product.slug}
-                aria-label={`Consultar por ${product.name}`}
+                aria-label={`Consultar por ${label}`}
               >
                 <Image
                   src={product.image}
-                  alt={`${product.name}, ${product.format} de Épicos Tandil`}
+                  alt={`${label}, ${product.format} de Épicos Tandil`}
                   fill
                   priority
                   sizes="(max-width: 760px) 62vw, 29vw"
                   style={{ objectPosition: product.imagePosition ?? "center" }}
                 />
-                <span>{product.name}</span>
+                <span>{label}</span>
               </a>
             ))}
             <div className="bin-rail" aria-hidden="true">
@@ -95,7 +102,7 @@ export default function Home() {
           <div className="section-heading">
             <h2>Elegí el que habla por vos.</h2>
             <p>
-              Selección disponible para consulta. Los precios son de referencia y podés confirmar
+              Selección disponible para consulta. Podés confirmar precios,
               modelos, cantidades y entrega directamente por WhatsApp.
             </p>
           </div>
@@ -140,7 +147,7 @@ export default function Home() {
                   </div>
                   <div className="product-buy">
                     <span>
-                      <small>Precio de referencia</small>
+                      <small>Precio</small>
                       {product.price}
                     </span>
                     <a href={whatsappUrl(product)} target="_blank" rel="noreferrer">
@@ -157,25 +164,27 @@ export default function Home() {
         <section className="families" id="familias">
           <div className="families-heading">
             <h2>Una forma para cada ritual.</h2>
-            <p>Entrá por el objeto que buscás. Los destacados siguen siendo la selección corta; acá empieza cada colección completa.</p>
+            <p>Entrá por el objeto que buscás. Acá empieza cada colección completa.</p>
           </div>
           <div className="family-grid">
-            <a className="family-card family-ferneteros" href="/ferneteros">
-              <Image src="/products/branca-aguila.webp" alt="Vaso fernetero dorado Branca" fill sizes="(max-width: 800px) 100vw, 66vw" />
-              <span className="family-index">Colección disponible</span>
-              <span className="family-name">Ferneteros</span>
+            <a className="family-card family-vasos-tubo" href="/vasos-tubo">
+              <Image src="/products/catalog/vasos-tubo/branca-frente.webp" alt="Vaso tubo Branca Dorado" fill sizes="(max-width: 800px) 100vw, 66vw" />
+              <span className="family-index">1 L · $ 7.500</span>
+              <span className="family-name">Vasos tubo</span>
               <span className="family-action">Ver colección <ArrowIcon /></span>
             </a>
-            <div className="family-card family-coming family-termicos">
-              <span className="family-index">Próximamente</span>
+            <a className="family-card family-secondary family-termicos" href={whatsappCategoryUrl("Térmico")} target="_blank" rel="noreferrer">
+              <Image src="/products/catalog/termicos/argentina-frente.webp" alt="Vaso térmico Argentina" fill sizes="(max-width: 520px) 100vw, 34vw" />
+              <span className="family-index">380 ml · $ 5.000</span>
               <span className="family-name">Térmicos</span>
-              <span className="family-outline" aria-hidden="true">T</span>
-            </div>
-            <div className="family-card family-coming family-mates">
-              <span className="family-index">Próximamente</span>
-              <span className="family-name">Mates</span>
-              <span className="family-outline" aria-hidden="true">M</span>
-            </div>
+              <span className="family-action">Consultar <ArrowIcon /></span>
+            </a>
+            <a className="family-card family-secondary family-ferneteros" href={whatsappCategoryUrl("Fernetero")} target="_blank" rel="noreferrer">
+              <Image src="/products/catalog/ferneteros/messi-argentina-detalle.webp" alt="Vaso fernetero Mesías 10" fill sizes="(max-width: 520px) 100vw, 34vw" />
+              <span className="family-index">700 ml · $ 8.500</span>
+              <span className="family-name">Ferneteros</span>
+              <span className="family-action">Consultar <ArrowIcon /></span>
+            </a>
           </div>
         </section>
 
@@ -184,7 +193,7 @@ export default function Home() {
           <div className="custom-copy">
             <h2>La batea sigue sumando diseños.</h2>
             <p>
-              Si buscás vasos ferneteros, térmicos o mates y no lo viste acá, escribinos. Te contamos
+              Si buscás vasos tubo, térmicos o ferneteros y no lo viste acá, escribinos. Te contamos
               qué modelos forman parte del catálogo actual.
             </p>
             <a className="button button-dark" href={whatsappUrl()} target="_blank" rel="noreferrer">
@@ -210,7 +219,7 @@ export default function Home() {
           <figure className="packaging">
             <div className="packaging-image">
               <Image
-                src={packaging}
+                src="/products/catalog/packaging.webp"
                 alt="Bolsa de entrega negra y dorada de Épicos Tandil"
                 fill
                 sizes="(max-width: 800px) 100vw, 38vw"
@@ -227,7 +236,7 @@ export default function Home() {
           <div className="contact-mountain" aria-hidden="true">
             <MountainMark />
           </div>
-          <h2>Encontrá tu próximo favorito.</h2>
+          <h2>Encontrá tu proximo favorito.</h2>
           <p>Decinos cuál viste y te contamos disponibilidad, opciones y entrega.</p>
           <a className="button button-gold" href={whatsappUrl()} target="_blank" rel="noreferrer">
             <WhatsAppIcon />

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { whatsappUrl } from "../data";
-import { ArrowIcon, MountainMark } from "./icons";
+import { ArrowIcon, InstagramIcon, MountainMark, WhatsAppIcon } from "./icons";
 
 export function Brand({ footer = false }: { footer?: boolean }) {
   return (
@@ -30,8 +30,8 @@ export function SiteFooter() {
     <footer>
       <Brand footer />
       <div className="footer-links">
-        <a href="https://www.instagram.com/epicos.tandil" target="_blank" rel="noreferrer">Instagram · @epicos.tandil</a>
-        <a href={whatsappUrl()} target="_blank" rel="noreferrer">WhatsApp · 223 519-5739</a>
+        <a href="https://www.instagram.com/epicos.tandil" target="_blank" rel="noreferrer"><InstagramIcon /> Instagram · @epicos.tandil</a>
+        <a href={whatsappUrl()} target="_blank" rel="noreferrer"><WhatsAppIcon /> WhatsApp · 223 519-5739</a>
       </div>
       <p>Las referencias culturales visibles pertenecen a sus respectivos titulares. Épicos Tandil no declara afiliaciones oficiales.</p>
     </footer>
