@@ -718,7 +718,6 @@ button {
   background: var(--gold);
   border: 1px solid var(--ink);
   display: flex;
-  gap: 5px;
   height: 44px;
   justify-content: center;
   left: 50%;
@@ -728,11 +727,10 @@ button {
   width: 40px;
 }
 
-.product-comparison-seam i {
-  background: var(--ink);
-  display: block;
-  height: 16px;
-  width: 2px;
+.comparison-arrows {
+  color: var(--ink);
+  height: 20px;
+  width: 30px;
 }
 
 .product-comparison-range {
@@ -1287,6 +1285,7 @@ footer > p {
 
   .record-cover {
     height: 82%;
+    top: -4%;
     width: 58%;
   }
 

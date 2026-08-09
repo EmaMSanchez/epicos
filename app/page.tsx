@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { startTransition, useState, type CSSProperties } from "react";
-import { ArrowIcon, MountainMark, WhatsAppIcon } from "./components/icons";
+import { ArrowIcon, ComparisonArrowsIcon, MountainMark, WhatsAppIcon } from "./components/icons";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 import { featuredProducts, products, type Product, type ProductTheme, whatsappUrl } from "./data";
 
@@ -32,7 +32,7 @@ function ThermalComparison({ product }: { product: Product }) {
         <Image src={boca.src} alt={boca.alt} fill sizes="(max-width: 700px) 100vw, 48vw" />
       </div>
       <div className="product-comparison-seam" aria-hidden="true">
-        <span><i /><i /></span>
+        <span><ComparisonArrowsIcon /></span>
       </div>
       <input
         className="product-comparison-range"
