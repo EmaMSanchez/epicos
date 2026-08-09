@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { startTransition, useState } from "react";
+import { startTransition, useState, type CSSProperties } from "react";
 import { ArrowIcon, MountainMark, WhatsAppIcon } from "./components/icons";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
-import { featuredProducts, type ProductTheme, whatsappCategoryUrl, whatsappUrl } from "./data";
+import { featuredProducts, products, type Product, type ProductTheme, whatsappCategoryUrl, whatsappUrl } from "./data";
 
 const filters: Array<"Todos" | ProductTheme> = ["Todos", "Fútbol", "Clásicos"];
 const heroSelection = [
@@ -12,9 +12,41 @@ const heroSelection = [
   { slug: "inmortal-10-tubo", label: "Inmortal 10" },
   { slug: "argentina-termico", label: "Argentina" },
 ].map(({ slug, label }) => ({
-  product: featuredProducts.find((product) => product.slug === slug)!,
+  product: products.find((product) => product.slug === slug)!,
   label,
 }));
+
+function ThermalComparison({ product }: { product: Product }) {
+  const [split, setSplit] = useState(52);
+  const [boca, river] = product.images;
+
+  return (
+    <div
+      className="product-comparison"
+      style={{ "--comparison-position": `${split}%` } as CSSProperties}
+    >
+      <div className="product-comparison-layer product-comparison-river">
+        <Image src={river.src} alt={river.alt} fill sizes="(max-width: 700px) 100vw, 48vw" />
+      </div>
+      <div className="product-comparison-layer product-comparison-boca">
+        <Image src={boca.src} alt={boca.alt} fill sizes="(max-width: 700px) 100vw, 48vw" />
+      </div>
+      <div className="product-comparison-seam" aria-hidden="true">
+        <span><i /><i /></span>
+      </div>
+      <input
+        className="product-comparison-range"
+        type="range"
+        min="12"
+        max="88"
+        value={split}
+        aria-label="Comparar vasos térmicos Boca y River"
+        aria-valuetext={`Boca ${split}%, River ${100 - split}%`}
+        onChange={(event) => setSplit(Number(event.target.value))}
+      />
+    </div>
+  );
+}
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("Todos");
@@ -127,37 +159,45 @@ export default function Home() {
           </div>
 
           <div className="product-grid">
-            {visibleProducts.map((product, index) => (
-              <article className={`product product-${(index % 4) + 1}`} key={product.slug}>
-                <div className="product-image">
-                  <Image
-                    src={product.image}
-                    alt={`${product.name}, ${product.format} con diseño impreso`}
-                    fill
-                    sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 42vw"
-                    style={{ objectPosition: product.imagePosition ?? "center" }}
-                  />
-                  <span className="product-family">{product.theme}</span>
-                </div>
-                <div className="product-info">
-                  <div>
-                    <span className="product-format">{product.format}</span>
-                    <h3>{product.name}</h3>
-                    <p>{product.description}</p>
+            {visibleProducts.map((product, index) => {
+              const isComparison = product.slug === "boca-river-termicos";
+
+              return (
+                <article className={`product product-${(index % 4) + 1}`} key={product.slug}>
+                  <div className="product-image">
+                    {isComparison ? (
+                      <ThermalComparison product={product} />
+                    ) : (
+                      <Image
+                        src={product.image}
+                        alt={`${product.name}, ${product.format} con diseño impreso`}
+                        fill
+                        sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 42vw"
+                        style={{ objectPosition: product.imagePosition ?? "center" }}
+                      />
+                    )}
+                    <span className="product-family">{product.theme}</span>
                   </div>
-                  <div className="product-buy">
-                    <span>
-                      <small>Precio</small>
-                      {product.price}
-                    </span>
-                    <a href={whatsappUrl(product)} target="_blank" rel="noreferrer">
-                      Consultar
-                      <ArrowIcon />
-                    </a>
+                  <div className="product-info">
+                    <div>
+                      <span className="product-format">{product.format}</span>
+                      <h3>{product.name}</h3>
+                      <p>{product.description}</p>
+                    </div>
+                    <div className="product-buy">
+                      <span>
+                        <small>Precio</small>
+                        {product.price}
+                      </span>
+                      <a href={whatsappUrl(product)} target="_blank" rel="noreferrer">
+                        Consultar
+                        <ArrowIcon />
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         </section>
 

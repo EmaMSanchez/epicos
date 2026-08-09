@@ -64,6 +64,20 @@ export const products: Product[] = [
     ],
   },
   {
+    slug: "boca-river-termicos",
+    name: "Boca + River",
+    description: "Pasión por duplicado. Compará nuestros dos diseños de cancha, elegí el tuyo o llevate la dupla",
+    kind: "Térmico",
+    theme: "Fútbol",
+    format: "Térmicos 380 ml",
+    price: "$ 5.000 c/u",
+    image: "/products/catalog/termicos/boca-frente.webp",
+    images: [
+      { src: "/products/catalog/termicos/boca-frente.webp", label: "Boca", alt: "Vaso térmico Boca azul y oro" },
+      { src: "/products/catalog/termicos/river-frente.webp", label: "River", alt: "Vaso térmico River blanco con banda roja" },
+    ],
+  },
+  {
     slug: "messi-argentina-fernetero",
     name: "Mesías 10",
     description: "Silueta, bastones celestes y el diez reunidos en un vaso translúcido.",
@@ -188,14 +202,16 @@ export const products: Product[] = [
   },
 ];
 
-const featuredSlugs = new Set([
+const featuredSlugs = [
   "branca-dorado-tubo",
   "inmortal-10-tubo",
-  "argentina-termico",
   "messi-argentina-fernetero",
-]);
+  "boca-river-termicos",
+];
 
-export const featuredProducts = products.filter((product) => featuredSlugs.has(product.slug));
+export const featuredProducts = featuredSlugs
+  .map((slug) => products.find((product) => product.slug === slug))
+  .filter((product): product is Product => product !== undefined);
 export const tubeProducts = products.filter((product) => product.kind === "Vaso tubo");
 
 export const whatsappNumber = "5492235195739";

@@ -677,6 +677,84 @@ button {
   transform: scale(1.025);
 }
 
+.product-comparison {
+  --comparison-position: 52%;
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.product-comparison-layer {
+  inset: 0;
+  position: absolute;
+}
+
+.product-comparison-boca {
+  clip-path: inset(0 calc(100% - var(--comparison-position)) 0 0);
+  will-change: clip-path;
+  z-index: 2;
+}
+
+.product-comparison-river {
+  transform: scaleX(0.94);
+  transform-origin: center;
+  z-index: 1;
+}
+
+.product-comparison-seam {
+  background: var(--gold);
+  bottom: 0;
+  left: var(--comparison-position);
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translateX(-1px);
+  width: 2px;
+  z-index: 5;
+}
+
+.product-comparison-seam > span {
+  align-items: center;
+  background: var(--gold);
+  border: 1px solid var(--ink);
+  display: flex;
+  gap: 5px;
+  height: 44px;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+}
+
+.product-comparison-seam i {
+  background: var(--ink);
+  display: block;
+  height: 16px;
+  width: 2px;
+}
+
+.product-comparison-range {
+  cursor: ew-resize;
+  height: 100%;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 6;
+}
+
+.product-comparison-range:focus-visible {
+  outline: none;
+}
+
+.product-comparison:focus-within .product-comparison-seam > span {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 4px;
+}
+
 .product-family {
   background: var(--gold);
   color: var(--ink);
@@ -685,9 +763,11 @@ button {
   left: 0;
   letter-spacing: 0.12em;
   padding: 8px 12px;
+  pointer-events: none;
   position: absolute;
   text-transform: uppercase;
   top: 0;
+  z-index: 7;
 }
 
 .product-info {
