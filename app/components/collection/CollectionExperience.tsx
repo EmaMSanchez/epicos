@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { ArrowIcon } from "../components/icons";
-import { tubeProducts, type Product, whatsappUrl } from "../data";
-import styles from "./vasos-tubo.module.css";
+import { ArrowIcon } from "../icons";
+import { type Product, whatsappUrl } from "../../data";
+import type { CollectionConfig } from "./types";
+import styles from "./collection.module.css";
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
   const [activeView, setActiveView] = useState(0);
@@ -12,7 +13,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
   const image = views[activeView];
 
   return (
-    <article className={`${styles.productCard} ${styles[`productCard${index + 1}`] ?? ""}`}>
+    <article className={`${styles.productCard} ${styles[`productCard${(index % 4) + 1}`] ?? ""}`}>
       <div className={styles.productPhoto}>
         <Image
           key={image.label}
@@ -20,7 +21,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           alt={image.alt}
           fill
           sizes="(max-width: 760px) 100vw, 50vw"
-          style={{ objectPosition: "center" }}
+          style={{ objectPosition: product.imagePosition ?? "center" }}
         />
         <span>{product.theme}</span>
       </div>
@@ -57,15 +58,16 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
   );
 }
 
-export default function VasosTuboExperience() {
+export default function CollectionExperience({ config }: { config: CollectionConfig }) {
   const storyRef = useRef<HTMLElement>(null);
   const [chapter, setChapter] = useState(0);
-  const featuredProduct = tubeProducts[0];
+  const featuredProduct = config.products[0];
   const [front, back] = featuredProduct.images;
 
   useEffect(() => {
     const story = storyRef.current;
     if (!story) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let frame = 0;
     let currentChapter = 0;
@@ -110,24 +112,18 @@ export default function VasosTuboExperience() {
 
   return (
     <>
-      <section
-        className={styles.story}
-        id="pieza"
-        ref={storyRef}
-      >
+      <section className={styles.story} id="pieza" ref={storyRef}>
         <div className={styles.stickyScene}>
           <div className={styles.storyCopy} aria-live="polite">
-            <div className={chapter === 0 ? styles.activeChapter : ""}>
-              <h2>Una pieza.<br />Dos relatos.</h2>
-              <p>El frente presenta el emblema sobre una superficie dorada.</p>
-            </div>
-            <div className={chapter === 1 ? styles.activeChapter : ""}>
-              <h2>La gráfica<br />da la vuelta.</h2>
-              <p>Al avanzar aparece la segunda cara, con la etiqueta ilustrada recorriendo el mismo dorado.</p>
-            </div>
+            {config.storyChapters.map((item, index) => (
+              <div className={chapter === index ? styles.activeChapter : ""} key={item.title.join("-")}>
+                <h2>{item.title.map((line) => <span key={line}>{line}</span>)}</h2>
+                <p>{item.description}</p>
+              </div>
+            ))}
           </div>
 
-          <div className={styles.storyVisual} role="img" aria-label={`Las dos caras del vaso tubo ${featuredProduct.name} cambian con el desplazamiento`}>
+          <div className={styles.storyVisual} role="img" aria-label={config.storyLabel}>
             <div className={`${styles.storyImage} ${styles.storyFront}`}>
               <Image src={front.src} alt="" fill priority sizes="(max-width: 760px) 86vw, 42vw" />
             </div>
@@ -143,11 +139,11 @@ export default function VasosTuboExperience() {
 
       <section className={styles.collection} id="disenos">
         <div className={styles.collectionHeading}>
-          <h2>Elegí la pieza.<br />Después mirá el otro lado.</h2>
-          <p>Cinco vasos tubo de 1 litro, cada uno con sus vistas disponibles. Cambiá de cara y consultá el diseño que te representa.</p>
+          <h2>{config.collectionTitle.map((line) => <span key={line}>{line}</span>)}</h2>
+          <p>{config.collectionDescription}</p>
         </div>
         <div className={styles.productGrid}>
-          {tubeProducts.map((product, index) => (
+          {config.products.map((product, index) => (
             <ProductCard product={product} index={index} key={product.slug} />
           ))}
         </div>

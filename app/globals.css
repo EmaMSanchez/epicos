@@ -1286,15 +1286,16 @@ footer > p {
   }
 
   .record-cover {
-    height: 75%;
-    width: 52%;
+    height: 82%;
+    width: 58%;
   }
 
-  .record-cover-1 { left: -6%; }
-  .record-cover-2 { left: 24%; }
-  .record-cover-3 { left: 52%; }
+  .record-cover-1 { left: -10%; }
+  .record-cover-2 { left: 21%; }
+  .record-cover-3 { left: 50%; }
 
   .record-cover > span {
+    bottom: 8%;
     font-size: 16px;
     padding: 8px 10px;
   }

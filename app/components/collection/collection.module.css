@@ -47,6 +47,12 @@
   margin-left: -0.045em;
 }
 
+.hero h1 span,
+.storyCopy h2 span,
+.collectionHeading h2 span {
+  display: block;
+}
+
 .heroCopy > p {
   color: var(--muted-on-dark);
   font-size: clamp(18px, 1.6vw, 24px);
@@ -157,12 +163,19 @@
   position: absolute;
   top: 50%;
   transform: translateY(calc(-50% + 22px));
-  transition: opacity 420ms ease, transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+  visibility: hidden;
 }
 
 .storyCopy > .activeChapter {
+  animation: chapter-in 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
   opacity: 1;
   transform: translateY(-50%);
+  visibility: visible;
+}
+
+@keyframes chapter-in {
+  from { opacity: 0; transform: translateY(calc(-50% + 22px)); }
+  to { opacity: 1; transform: translateY(-50%); }
 }
 
 .storyCopy h2 {
@@ -428,6 +441,11 @@
   max-width: 9ch;
 }
 
+.relaxedTitles .storyIntro h2,
+.relaxedTitles .closing h2 {
+  line-height: 1.1;
+}
+
 .closing p {
   color: var(--paper);
   font-size: 18px;
@@ -573,7 +591,19 @@
   }
 
   .storyCopy {
-    min-height: 300px;
+    display: grid;
+    gap: 42px;
+    min-height: 0;
+  }
+
+  .storyCopy > div,
+  .storyCopy > .activeChapter {
+    animation: none;
+    opacity: 1;
+    position: relative;
+    top: auto;
+    transform: none;
+    visibility: visible;
   }
 
   .storyVisual {
@@ -595,5 +625,10 @@
 
   .storyBack {
     opacity: 1;
+  }
+
+  .sideLabel,
+  .progressTrack {
+    display: none;
   }
 }

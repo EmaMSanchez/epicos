@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { ArrowIcon, WhatsAppIcon } from "../components/icons";
-import { SiteFooter, SiteHeader } from "../components/SiteChrome";
-import { tubeProducts, whatsappUrl } from "../data";
-import VasosTuboExperience from "./VasosTuboExperience";
-import styles from "./vasos-tubo.module.css";
+import CollectionPage from "../components/collection/CollectionPage";
+import type { CollectionConfig } from "../components/collection/types";
+import { tubeProducts } from "../data";
 
 export const metadata: Metadata = {
   title: "Vasos tubo de 1 litro | Épicos Tandil",
@@ -12,51 +9,30 @@ export const metadata: Metadata = {
   keywords: ["vasos tubo", "vasos de 1 litro", "vasos personalizados Tandil", "Épicos Tandil"],
 };
 
+const config: CollectionConfig = {
+  heroTitle: ["Vasos", "tubo"],
+  heroTagline: "Diseños que no terminan en el frente.",
+  heroAlt: "Vaso tubo Branca Dorado de 1 litro",
+  introTitle: "El diseño sigue cuando el vaso gira.",
+  introDescription: "Las gráficas recorren cada pieza y, en varios diseños, continúan de frente a dorso. Desplazate para descubrirlas.",
+  storyLabel: "Las dos caras del vaso tubo Branca Dorado cambian con el desplazamiento",
+  storyChapters: [
+    { title: ["Una pieza.", "Dos relatos."], description: "El frente presenta el emblema sobre una superficie dorada." },
+    { title: ["La gráfica", "da la vuelta."], description: "Al avanzar aparece la segunda cara, con la etiqueta ilustrada recorriendo el mismo dorado." },
+  ],
+  collectionTitle: ["Elegí la pieza.", "Después mirá el otro lado."],
+  collectionDescription: "Cinco vasos tubo de 1 litro, cada uno con sus vistas disponibles. Cambiá de cara y consultá el diseño que te representa.",
+  closingTitle: "¿Cuál habla por vos?",
+  closingDescription: "Decinos el nombre del diseño y te contamos disponibilidad, cantidades y opciones de entrega.",
+  products: tubeProducts,
+};
+
 export default function VasosTuboPage() {
-  const featuredProduct = tubeProducts[0];
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Vasos tubo Épicos Tandil",
-    description: "Colección de vasos tubo de 1 litro con diseños impresos y consulta directa por WhatsApp.",
-    numberOfItems: tubeProducts.length,
-  };
-
   return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <SiteHeader />
-
-      <main className={styles.page}>
-        <section className={styles.hero}>
-          <div className={styles.heroCopy}>
-            <h1>Vasos<br />tubo</h1>
-            <p>Diseños que no terminan en el frente.</p>
-            <div className={styles.heroActions}>
-              <a href="#pieza">Ver la pieza <ArrowIcon /></a>
-              <a href={whatsappUrl()} target="_blank" rel="noreferrer"><WhatsAppIcon /> Consultar</a>
-            </div>
-          </div>
-          <div className={styles.heroObject}>
-            <span aria-hidden="true">ÉPICOS</span>
-            <Image src={featuredProduct.image} alt={`${featuredProduct.name}, vaso tubo de 1 litro`} fill priority sizes="(max-width: 760px) 90vw, 47vw" />
-          </div>
-        </section>
-
-        <section className={styles.storyIntro}>
-          <h2>El diseño sigue cuando el vaso gira.</h2>
-          <p>Las gráficas recorren cada pieza y, en varios diseños, continúan de frente a dorso. Desplazate para descubrirlas.</p>
-        </section>
-
-        <VasosTuboExperience />
-
-        <section className={styles.closing} id="consultar">
-          <h2>¿Cuál habla por vos?</h2>
-          <p>Decinos el nombre del diseño y te contamos disponibilidad, cantidades y opciones de entrega.</p>
-          <a href={whatsappUrl()} target="_blank" rel="noreferrer"><WhatsAppIcon /> Escribir por WhatsApp</a>
-        </section>
-      </main>
-      <SiteFooter />
-    </>
+    <CollectionPage
+      config={config}
+      schemaName="Vasos tubo Épicos Tandil"
+      schemaDescription="Colección de vasos tubo de 1 litro con diseños impresos y consulta directa por WhatsApp."
+    />
   );
 }

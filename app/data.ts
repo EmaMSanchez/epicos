@@ -61,6 +61,7 @@ export const products: Product[] = [
     image: "/products/catalog/termicos/argentina-frente.webp",
     images: [
       { src: "/products/catalog/termicos/argentina-frente.webp", label: "Frente", alt: "Frente del vaso térmico Argentina celeste y blanco" },
+      { src: "/products/catalog/termicos/argentina-dorso.webp", label: "Dorso", alt: "Dorso del vaso térmico Argentina con bastones celestes y blancos" },
     ],
   },
   {
@@ -89,7 +90,6 @@ export const products: Product[] = [
     images: [
       { src: "/products/catalog/ferneteros/messi-argentina-frente.webp", label: "Frente", alt: "Frente del vaso fernetero Mesías 10" },
       { src: "/products/catalog/ferneteros/messi-argentina-dorso.webp", label: "Dorso", alt: "Dorso del vaso fernetero Mesías 10" },
-      { src: "/products/catalog/ferneteros/messi-argentina-detalle.webp", label: "Detalle", alt: "Vista adicional del vaso fernetero Mesías 10" },
     ],
   },
   {
@@ -161,6 +161,20 @@ export const products: Product[] = [
     ],
   },
   {
+    slug: "sangre-de-campeones-fernetero",
+    name: "Sangre de campeones",
+    description: "Messi al frente y Diego al dorso, dos campeones reunidos en una misma pieza.",
+    kind: "Fernetero",
+    theme: "Fútbol",
+    format: "Vaso fernetero 700 ml",
+    price: "$ 8.500",
+    image: "/products/catalog/ferneteros/sangre-campeones-frente.webp",
+    images: [
+      { src: "/products/catalog/ferneteros/sangre-campeones-frente.webp", label: "Frente", alt: "Frente del vaso fernetero Sangre de campeones con retrato de Messi" },
+      { src: "/products/catalog/ferneteros/sangre-campeones-dorso.webp", label: "Dorso", alt: "Dorso del vaso fernetero Sangre de campeones con silueta de Diego" },
+    ],
+  },
+  {
     slug: "messi-azul-fernetero",
     name: "Messi Azul",
     description: "Azul intenso y retrato tipográfico en una pieza de gran presencia.",
@@ -171,19 +185,6 @@ export const products: Product[] = [
     image: "/products/catalog/ferneteros/messi-azul.webp",
     images: [
       { src: "/products/catalog/ferneteros/messi-azul.webp", label: "Diseño", alt: "Vaso fernetero Messi Azul" },
-    ],
-  },
-  {
-    slug: "diego-fernetero",
-    name: "Diego 10",
-    description: "Silueta en movimiento y firma sobre una base translúcida.",
-    kind: "Fernetero",
-    theme: "Fútbol",
-    format: "Vaso fernetero 700 ml",
-    price: "$ 8.500",
-    image: "/products/catalog/ferneteros/diego.webp",
-    images: [
-      { src: "/products/catalog/ferneteros/diego.webp", label: "Diseño", alt: "Vaso fernetero Diego 10 translúcido" },
     ],
   },
   {
@@ -213,6 +214,17 @@ export const featuredProducts = featuredSlugs
   .map((slug) => products.find((product) => product.slug === slug))
   .filter((product): product is Product => product !== undefined);
 export const tubeProducts = products.filter((product) => product.kind === "Vaso tubo");
+export const thermalProducts = products.filter(
+  (product) => product.kind === "Térmico" && product.slug !== "boca-river-termicos",
+);
+export const fernetProducts = [
+  "sangre-de-campeones-fernetero",
+  "xeneize-10-fernetero",
+  "messi-argentina-fernetero",
+  "messi-azul-fernetero",
+]
+  .map((slug) => products.find((product) => product.slug === slug))
+  .filter((product): product is Product => product !== undefined);
 
 export const whatsappNumber = "5492235195739";
 

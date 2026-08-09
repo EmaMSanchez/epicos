@@ -4,7 +4,7 @@ import Image from "next/image";
 import { startTransition, useState, type CSSProperties } from "react";
 import { ArrowIcon, MountainMark, WhatsAppIcon } from "./components/icons";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
-import { featuredProducts, products, type Product, type ProductTheme, whatsappCategoryUrl, whatsappUrl } from "./data";
+import { featuredProducts, products, type Product, type ProductTheme, whatsappUrl } from "./data";
 
 const filters: Array<"Todos" | ProductTheme> = ["Todos", "Fútbol", "Clásicos"];
 const heroSelection = [
@@ -213,17 +213,17 @@ export default function Home() {
               <span className="family-name">Vasos tubo</span>
               <span className="family-action">Ver colección <ArrowIcon /></span>
             </a>
-            <a className="family-card family-secondary family-termicos" href={whatsappCategoryUrl("Térmico")} target="_blank" rel="noreferrer">
+            <a className="family-card family-secondary family-termicos" href="/vasos-termicos">
               <Image src="/products/catalog/termicos/argentina-frente.webp" alt="Vaso térmico Argentina" fill sizes="(max-width: 520px) 100vw, 34vw" />
               <span className="family-index">380 ml · $ 5.000</span>
               <span className="family-name">Térmicos</span>
-              <span className="family-action">Consultar <ArrowIcon /></span>
+              <span className="family-action">Ver colección <ArrowIcon /></span>
             </a>
-            <a className="family-card family-secondary family-ferneteros" href={whatsappCategoryUrl("Fernetero")} target="_blank" rel="noreferrer">
-              <Image src="/products/catalog/ferneteros/messi-argentina-detalle.webp" alt="Vaso fernetero Mesías 10" fill sizes="(max-width: 520px) 100vw, 34vw" />
+            <a className="family-card family-secondary family-ferneteros" href="/ferneteros">
+              <Image src="/products/catalog/ferneteros/sangre-campeones-frente.webp" alt="Vaso fernetero Sangre de campeones" fill sizes="(max-width: 520px) 100vw, 34vw" />
               <span className="family-index">700 ml · $ 8.500</span>
               <span className="family-name">Ferneteros</span>
-              <span className="family-action">Consultar <ArrowIcon /></span>
+              <span className="family-action">Ver colección <ArrowIcon /></span>
             </a>
           </div>
         </section>
