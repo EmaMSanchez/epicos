@@ -4,9 +4,9 @@ import type { CollectionConfig } from "../components/collection/types";
 import { fernetProducts } from "../data";
 
 export const metadata: Metadata = {
-  title: "Vasos ferneteros de 700 ml | Épicos Mar del Plata",
-  description: "Descubrí los vasos ferneteros de Épicos Mar del Plata, recorré sus diseños y consultá por WhatsApp.",
-  keywords: ["vasos ferneteros", "vasos de 700 ml", "ferneteros personalizados", "Épicos Mar del Plata"],
+  title: "Vasos ferneteros de 700 ml | Épicos Tandil",
+  description: "Descubrí los vasos ferneteros de Épicos Tandil, recorré sus diseños y consultá por WhatsApp.",
+  keywords: ["vasos ferneteros", "vasos de 700 ml", "ferneteros personalizados", "Épicos Tandil"],
 };
 
 const config: CollectionConfig = {
@@ -31,7 +31,7 @@ export default function FerneterosPage() {
   return (
     <CollectionPage
       config={config}
-      schemaName="Vasos ferneteros Épicos Mar del Plata"
+      schemaName="Vasos ferneteros Épicos Tandil"
       schemaDescription="Colección de vasos ferneteros de 700 ml con diseños impresos y consulta directa por WhatsApp."
     />
   );

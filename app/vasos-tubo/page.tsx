@@ -4,9 +4,9 @@ import type { CollectionConfig } from "../components/collection/types";
 import { tubeProducts } from "../data";
 
 export const metadata: Metadata = {
-  title: "Vasos tubo de 1 litro | Épicos Mar del Plata",
-  description: "Descubrí los vasos tubo de 1 litro de Épicos Mar del Plata, mirá cada diseño de ambos lados y consultá por WhatsApp.",
-  keywords: ["vasos tubo", "vasos de 1 litro", "vasos personalizados Mar del Plata", "Épicos Mar del Plata"],
+  title: "Vasos tubo de 1 litro | Épicos Tandil",
+  description: "Descubrí los vasos tubo de 1 litro de Épicos Tandil, mirá cada diseño de ambos lados y consultá por WhatsApp.",
+  keywords: ["vasos tubo", "vasos de 1 litro", "vasos personalizados Tandil", "Épicos Tandil"],
 };
 
 const config: CollectionConfig = {
@@ -31,7 +31,7 @@ export default function VasosTuboPage() {
   return (
     <CollectionPage
       config={config}
-      schemaName="Vasos tubo Épicos Mar del Plata"
+      schemaName="Vasos tubo Épicos Tandil"
       schemaDescription="Colección de vasos tubo de 1 litro con diseños impresos y consulta directa por WhatsApp."
     />
   );

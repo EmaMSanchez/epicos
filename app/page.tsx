@@ -58,11 +58,11 @@ export default function Home() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Épicos Mar del Plata",
+    name: "Épicos Tandil",
     sameAs: ["https://www.instagram.com/epicos.tandil"],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+54 9 223 520-9499",
+      telephone: "+54-9-223-519-5739",
       contactType: "sales",
       availableLanguage: "Spanish",
     },
@@ -108,7 +108,7 @@ export default function Home() {
               >
                 <Image
                   src={product.image}
-                  alt={`${label}, ${product.format} de Épicos Mar del Plata`}
+                  alt={`${label}, ${product.format} de Épicos Tandil`}
                   fill
                   priority
                   sizes="(max-width: 760px) 62vw, 29vw"
@@ -119,7 +119,7 @@ export default function Home() {
             ))}
             <div className="bin-rail" aria-hidden="true">
               <span>Ediciones para usar</span>
-              <span>Mar del Plata · Argentina</span>
+              <span>Tandil · Argentina</span>
             </div>
           </div>
 
@@ -260,7 +260,7 @@ export default function Home() {
             <div className="packaging-image">
               <Image
                 src="/products/catalog/packaging.webp"
-                alt="Bolsa de entrega negra y dorada de Épicos Mar del Plata"
+                alt="Bolsa de entrega negra y dorada de Épicos Tandil"
                 fill
                 sizes="(max-width: 800px) 100vw, 38vw"
               />
@@ -280,7 +280,7 @@ export default function Home() {
           <p>Decinos cuál viste y te contamos disponibilidad, opciones y entrega.</p>
           <a className="button button-gold" href={whatsappUrl()} target="_blank" rel="noreferrer">
             <WhatsAppIcon />
-            Escribir al +54 9 223 520-9499
+            Escribir al 223 519-5739
           </a>
         </section>
       </main>
