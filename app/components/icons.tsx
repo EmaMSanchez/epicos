@@ -23,6 +23,30 @@ export function ComparisonArrowsIcon() {
   );
 }
 
+export function ChevronDownIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" className="nav-chevron">
+      <path d="m5 8 5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+  );
+}
+
+export function MenuIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 20" className="mobile-menu-icon">
+      <path d="M1 5h22M9 15h14" fill="none" stroke="currentColor" strokeWidth="2" />
+    </svg>
+  );
+}
+
+export function CloseIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" className="mobile-menu-close-icon">
+      <path d="m4 4 12 12M16 4 4 16" fill="none" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" className="icon">

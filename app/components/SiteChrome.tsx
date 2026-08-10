@@ -1,13 +1,14 @@
-import Link from "next/link";
+/* eslint-disable @next/next/no-html-link-for-pages -- Native links re-scroll unchanged URL fragments and avoid static-export RSC prefetches. */
 import { whatsappUrl } from "../data";
-import { ArrowIcon, InstagramIcon, MountainMark, WhatsAppIcon } from "./icons";
+import { ArrowIcon, ChevronDownIcon, InstagramIcon, MountainMark, WhatsAppIcon } from "./icons";
+import MobileMenu from "./MobileMenu";
 
 export function Brand({ footer = false }: { footer?: boolean }) {
   return (
-    <Link className={`brand${footer ? " footer-brand" : ""}`} href="/#inicio" aria-label="Épicos Tandil, inicio">
+    <a className={`brand${footer ? " footer-brand" : ""}`} href="/#inicio" aria-label="Épicos Tandil, inicio">
       <MountainMark />
       <span className="brand-type"><strong>ÉPICOS</strong><small>TANDIL</small></span>
-    </Link>
+    </a>
   );
 }
 
@@ -16,11 +17,19 @@ export function SiteHeader() {
     <header className="site-header">
       <Brand />
       <nav aria-label="Navegación principal">
-        <Link href="/#familias">Productos</Link>
-        <Link href="/#catalogo">Destacados</Link>
-        <Link href="/#mayoristas">Mayoristas</Link>
+        <div className="nav-products">
+          <a href="/#familias">Productos<ChevronDownIcon /></a>
+          <div className="product-menu" aria-label="Categorías de productos">
+            <a href="/vasos-tubo"><span>Vasos tubo</span><ArrowIcon /></a>
+            <a href="/vasos-termicos"><span>Térmicos</span><ArrowIcon /></a>
+            <a href="/ferneteros"><span>Ferneteros</span><ArrowIcon /></a>
+          </div>
+        </div>
+        <a href="/#destacados">Destacados</a>
+        <a href="/#mayoristas">Mayoristas</a>
       </nav>
       <a className="header-action" href={whatsappUrl()} target="_blank" rel="noreferrer">Consultar<ArrowIcon /></a>
+      <MobileMenu />
     </header>
   );
 }

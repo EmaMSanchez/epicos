@@ -8,12 +8,14 @@ import { featuredProducts, products, type Product, type ProductTheme, whatsappUr
 
 const filters: Array<"Todos" | ProductTheme> = ["Todos", "Fútbol", "Clásicos"];
 const heroSelection = [
-  { slug: "messi-argentina-fernetero", label: "Mesías" },
-  { slug: "inmortal-10-tubo", label: "Inmortal 10" },
-  { slug: "argentina-termico", label: "Argentina" },
-].map(({ slug, label }) => ({
+  { slug: "messi-argentina-fernetero", label: "Mesías", href: "/ferneteros", collection: "ferneteros" },
+  { slug: "inmortal-10-tubo", label: "Inmortal 10", href: "/vasos-tubo", collection: "vasos tubo" },
+  { slug: "argentina-termico", label: "Argentina", href: "/vasos-termicos", collection: "vasos térmicos" },
+].map(({ slug, label, href, collection }) => ({
   product: products.find((product) => product.slug === slug)!,
   label,
+  href,
+  collection,
 }));
 
 function ThermalComparison({ product }: { product: Product }) {
@@ -84,7 +86,7 @@ export default function Home() {
               armá un pedido para tu gente.
             </p>
             <div className="hero-actions">
-              <a className="button button-gold" href="#catalogo">
+              <a className="button button-gold" href="#destacados">
                 Explorar diseños
                 <ArrowIcon />
               </a>
@@ -97,14 +99,12 @@ export default function Home() {
 
           <div className="record-bin" aria-label="Selección destacada de productos">
             <div className="bin-backdrop" aria-hidden="true">ÉPICOS</div>
-            {heroSelection.map(({ product, label }, index) => (
+            {heroSelection.map(({ product, label, href, collection }, index) => (
               <a
                 className={`record-cover record-cover-${index + 1}`}
-                href={whatsappUrl(product)}
-                target="_blank"
-                rel="noreferrer"
+                href={href}
                 key={product.slug}
-                aria-label={`Consultar por ${label}`}
+                aria-label={`Ver colección de ${collection}`}
               >
                 <Image
                   src={product.image}
@@ -130,11 +130,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="catalog" id="catalogo">
+        <section className="catalog" id="destacados">
           <div className="section-heading">
             <h2>Elegí el que habla por vos.</h2>
             <p>
-              Selección disponible para consulta. Podés confirmar precios,
+              Selección de destacados disponibles para consulta. Podés confirmar precios,
               modelos, cantidades y entrega directamente por WhatsApp.
             </p>
           </div>
