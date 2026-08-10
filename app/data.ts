@@ -226,17 +226,17 @@ export const fernetProducts = [
   .map((slug) => products.find((product) => product.slug === slug))
   .filter((product): product is Product => product !== undefined);
 
-export const whatsappNumber = "5492235195739";
+export const whatsappNumber = "5492235209499";
 
 export function whatsappUrl(product?: Product) {
   const message = product
-    ? `Hola Épicos Tandil, quiero consultar por el diseño ${product.name} (${product.format}).`
-    : "Hola Épicos Tandil, quiero conocer el catálogo y consultar por un pedido.";
+    ? `Hola Épicos Mar del Plata, quiero consultar por el diseño ${product.name} (${product.format}).`
+    : "Hola Épicos Mar del Plata, quiero conocer el catálogo y consultar por un pedido.";
 
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 export function whatsappCategoryUrl(kind: ProductKind) {
-  const message = `Hola Épicos Tandil, quiero consultar por la colección de ${kind.toLocaleLowerCase("es-AR")}.`;
+  const message = `Hola Épicos Mar del Plata, quiero consultar por la colección de ${kind.toLocaleLowerCase("es-AR")}.`;
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }

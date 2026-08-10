@@ -5,9 +5,9 @@ import MobileMenu from "./MobileMenu";
 
 export function Brand({ footer = false }: { footer?: boolean }) {
   return (
-    <a className={`brand${footer ? " footer-brand" : ""}`} href="/#inicio" aria-label="Épicos Tandil, inicio">
+    <a className={`brand${footer ? " footer-brand" : ""}`} href="/#inicio" aria-label="Épicos Mar del Plata, inicio">
       <MountainMark />
-      <span className="brand-type"><strong>ÉPICOS</strong><small>TANDIL</small></span>
+      <span className="brand-type"><strong>ÉPICOS</strong><small>MAR DEL PLATA</small></span>
     </a>
   );
 }
@@ -40,9 +40,9 @@ export function SiteFooter() {
       <Brand footer />
       <div className="footer-links">
         <a href="https://www.instagram.com/epicos.tandil" target="_blank" rel="noreferrer"><InstagramIcon /> Instagram · @epicos.tandil</a>
-        <a href={whatsappUrl()} target="_blank" rel="noreferrer"><WhatsAppIcon /> WhatsApp · 223 519-5739</a>
+        <a href={whatsappUrl()} target="_blank" rel="noreferrer"><WhatsAppIcon /> WhatsApp · +54 9 223 520-9499</a>
       </div>
-      <p>Las referencias culturales visibles pertenecen a sus respectivos titulares. Épicos Tandil no declara afiliaciones oficiales.</p>
+      <p>Las referencias culturales visibles pertenecen a sus respectivos titulares. Épicos Mar del Plata no declara afiliaciones oficiales.</p>
     </footer>
   );
 }

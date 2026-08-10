@@ -5,7 +5,7 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 import styles from "./not-found.module.css";
 
 export const metadata: Metadata = {
-  title: "Página no encontrada | Épicos Tandil",
+  title: "Página no encontrada | Épicos Mar del Plata",
   robots: { index: false, follow: false },
 };
 
@@ -16,9 +16,9 @@ export default function NotFound() {
       <main className={styles.page}>
         <span className={styles.code} aria-hidden="true">404</span>
         <div className={styles.content}>
-          <div className={styles.logo} aria-label="Épicos Tandil">
+          <div className={styles.logo} aria-label="Épicos Mar del Plata">
             <MountainMark />
-            <span><strong>ÉPICOS</strong><small>TANDIL</small></span>
+            <span><strong>ÉPICOS</strong><small>MAR DEL PLATA</small></span>
           </div>
           <h1>Página no encontrada.</h1>
           <p>Ese diseño no está en esta batea. Volvé al catálogo y encontrá el próximo.</p>

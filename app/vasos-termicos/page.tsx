@@ -4,9 +4,9 @@ import type { CollectionConfig } from "../components/collection/types";
 import { thermalProducts } from "../data";
 
 export const metadata: Metadata = {
-  title: "Vasos térmicos para café | Épicos Tandil",
-  description: "Descubrí los vasos térmicos de Épicos Tandil, mirá cada diseño de frente y dorso y consultá por WhatsApp.",
-  keywords: ["vasos térmicos", "vasos para café", "térmicos Starbucks", "Épicos Tandil"],
+  title: "Vasos térmicos para café | Épicos Mar del Plata",
+  description: "Descubrí los vasos térmicos de Épicos Mar del Plata, mirá cada diseño de frente y dorso y consultá por WhatsApp.",
+  keywords: ["vasos térmicos", "vasos para café", "térmicos Starbucks", "Épicos Mar del Plata"],
 };
 
 const config: CollectionConfig = {
@@ -32,7 +32,7 @@ export default function VasosTermicosPage() {
   return (
     <CollectionPage
       config={config}
-      schemaName="Vasos térmicos Épicos Tandil"
+      schemaName="Vasos térmicos Épicos Mar del Plata"
       schemaDescription="Colección de vasos térmicos de 380 ml con diseños impresos y consulta directa por WhatsApp."
     />
   );

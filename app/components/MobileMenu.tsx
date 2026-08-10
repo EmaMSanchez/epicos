@@ -93,9 +93,9 @@ export default function MobileMenu() {
         onClose={handleClose}
       >
         <div className="mobile-menu-topbar">
-          <a className="mobile-menu-brand" href="/#inicio" aria-label="Épicos Tandil, inicio" onClick={(event) => navigateToSection(event, "inicio")}>
+          <a className="mobile-menu-brand" href="/#inicio" aria-label="Épicos Mar del Plata, inicio" onClick={(event) => navigateToSection(event, "inicio")}>
             <MountainMark />
-            <span><strong>ÉPICOS</strong><small>TANDIL</small></span>
+            <span><strong>ÉPICOS</strong><small>MAR DEL PLATA</small></span>
           </a>
           <button ref={closeRef} type="button" className="mobile-menu-close" aria-label="Cerrar menú" onClick={closeMenu}>
             <CloseIcon />

@@ -976,6 +976,23 @@ button {
   max-width: 48ch;
 }
 
+@media (min-width: 801px) {
+  .families-heading {
+    gap: clamp(30px, 7vw, 120px);
+    grid-template-columns: 1.35fr 0.65fr;
+  }
+
+  .families-heading h2 {
+    font-size: clamp(54px, 7vw, 104px);
+    max-width: none;
+  }
+
+  .families-heading p {
+    margin-bottom: 8px;
+    max-width: 48ch;
+  }
+}
+
 .catalog-tools {
   align-items: center;
   border-bottom: 1px solid var(--line-light);
