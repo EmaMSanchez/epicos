@@ -29,7 +29,7 @@ export const products: Product[] = [
     kind: "Vaso tubo",
     theme: "Clásicos",
     format: "Vaso tubo 1 L",
-    price: "$ 7.500",
+    price: "$ 9.000",
     image: "/products/catalog/vasos-tubo/branca-frente.webp",
     images: [
       { src: "/products/catalog/vasos-tubo/branca-frente.webp", label: "Frente", alt: "Frente del vaso tubo Branca Dorado con águila y emblema" },
@@ -43,7 +43,7 @@ export const products: Product[] = [
     kind: "Vaso tubo",
     theme: "Fútbol",
     format: "Vaso tubo 1 L",
-    price: "$ 7.500",
+    price: "$ 9.000",
     image: "/products/catalog/vasos-tubo/inmortal-frente.webp",
     images: [
       { src: "/products/catalog/vasos-tubo/inmortal-frente.webp", label: "Frente", alt: "Frente dorado del vaso tubo Inmortal 10" },
@@ -57,7 +57,7 @@ export const products: Product[] = [
     kind: "Térmico",
     theme: "Fútbol",
     format: "Térmico 380 ml",
-    price: "$ 5.000",
+    price: "$ 6.500",
     image: "/products/catalog/termicos/argentina-frente.webp",
     images: [
       { src: "/products/catalog/termicos/argentina-frente.webp", label: "Frente", alt: "Frente del vaso térmico Argentina celeste y blanco" },
@@ -71,7 +71,7 @@ export const products: Product[] = [
     kind: "Térmico",
     theme: "Fútbol",
     format: "Térmicos 380 ml",
-    price: "$ 5.000 c/u",
+    price: "$ 6.500 c/u",
     image: "/products/catalog/termicos/boca-frente.webp",
     images: [
       { src: "/products/catalog/termicos/boca-frente.webp", label: "Boca", alt: "Vaso térmico Boca azul y oro" },
@@ -85,7 +85,7 @@ export const products: Product[] = [
     kind: "Fernetero",
     theme: "Fútbol",
     format: "Vaso fernetero 700 ml",
-    price: "$ 8.500",
+    price: "$ 10.000",
     image: "/products/catalog/ferneteros/messi-argentina-frente.webp",
     images: [
       { src: "/products/catalog/ferneteros/messi-argentina-frente.webp", label: "Frente", alt: "Frente del vaso fernetero Mesías 10" },
@@ -99,7 +99,7 @@ export const products: Product[] = [
     kind: "Vaso tubo",
     theme: "Fútbol",
     format: "Vaso tubo 1 L",
-    price: "$ 7.500",
+    price: "$ 9.000",
     image: "/products/catalog/vasos-tubo/scudetto-frente.webp",
     images: [
       { src: "/products/catalog/vasos-tubo/scudetto-frente.webp", label: "Frente", alt: "Frente celeste del vaso tubo Scudetto 1988" },
@@ -113,7 +113,7 @@ export const products: Product[] = [
     kind: "Vaso tubo",
     theme: "Fútbol",
     format: "Vaso tubo 1 L",
-    price: "$ 7.500",
+    price: "$ 9.000",
     image: "/products/catalog/vasos-tubo/river-10.webp",
     images: [
       { src: "/products/catalog/vasos-tubo/river-10.webp", label: "Diseño", alt: "Vaso tubo River 10 blanco con banda roja" },
@@ -126,7 +126,7 @@ export const products: Product[] = [
     kind: "Vaso tubo",
     theme: "Fútbol",
     format: "Vaso tubo 1 L",
-    price: "$ 7.500",
+    price: "$ 9.000",
     image: "/products/catalog/vasos-tubo/boca-10.webp",
     images: [
       { src: "/products/catalog/vasos-tubo/boca-10.webp", label: "Diseño", alt: "Vaso tubo Boca 10 azul y oro" },
@@ -139,7 +139,7 @@ export const products: Product[] = [
     kind: "Térmico",
     theme: "Fútbol",
     format: "Térmico 380 ml",
-    price: "$ 5.000",
+    price: "$ 6.500",
     image: "/products/catalog/termicos/boca-frente.webp",
     images: [
       { src: "/products/catalog/termicos/boca-frente.webp", label: "Frente", alt: "Frente del vaso térmico Boca azul y oro" },
@@ -153,7 +153,7 @@ export const products: Product[] = [
     kind: "Térmico",
     theme: "Fútbol",
     format: "Térmico 380 ml",
-    price: "$ 5.000",
+    price: "$ 6.500",
     image: "/products/catalog/termicos/river-frente.webp",
     images: [
       { src: "/products/catalog/termicos/river-frente.webp", label: "Frente", alt: "Frente del vaso térmico River blanco con banda roja" },
@@ -167,7 +167,7 @@ export const products: Product[] = [
     kind: "Fernetero",
     theme: "Fútbol",
     format: "Vaso fernetero 700 ml",
-    price: "$ 8.500",
+    price: "$ 10.000",
     image: "/products/catalog/ferneteros/sangre-campeones-frente.webp",
     images: [
       { src: "/products/catalog/ferneteros/sangre-campeones-frente.webp", label: "Frente", alt: "Frente del vaso fernetero Sangre de campeones con retrato de Messi" },
@@ -181,7 +181,7 @@ export const products: Product[] = [
     kind: "Fernetero",
     theme: "Fútbol",
     format: "Vaso fernetero 700 ml",
-    price: "$ 8.500",
+    price: "$ 10.000",
     image: "/products/catalog/ferneteros/messi-azul.webp",
     images: [
       { src: "/products/catalog/ferneteros/messi-azul.webp", label: "Diseño", alt: "Vaso fernetero Messi Azul" },
@@ -194,7 +194,7 @@ export const products: Product[] = [
     kind: "Fernetero",
     theme: "Fútbol",
     format: "Vaso fernetero 700 ml",
-    price: "$ 8.500",
+    price: "$ 10.000",
     image: "/products/catalog/ferneteros/xeneize-frente.webp",
     images: [
       { src: "/products/catalog/ferneteros/xeneize-frente.webp", label: "Frente", alt: "Frente del vaso fernetero Xeneize 10" },

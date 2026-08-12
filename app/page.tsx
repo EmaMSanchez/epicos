@@ -209,19 +209,19 @@ export default function Home() {
           <div className="family-grid">
             <a className="family-card family-vasos-tubo" href="/vasos-tubo">
               <Image src="/products/catalog/vasos-tubo/branca-frente.webp" alt="Vaso tubo Branca Dorado" fill sizes="(max-width: 800px) 100vw, 66vw" />
-              <span className="family-index">1 L · $ 7.500</span>
+              <span className="family-index">1 L · $ 9.000</span>
               <span className="family-name">Vasos tubo</span>
               <span className="family-action">Ver colección <ArrowIcon /></span>
             </a>
             <a className="family-card family-secondary family-termicos" href="/vasos-termicos">
               <Image src="/products/catalog/termicos/argentina-frente.webp" alt="Vaso térmico Argentina" fill sizes="(max-width: 520px) 100vw, 34vw" />
-              <span className="family-index">380 ml · $ 5.000</span>
+              <span className="family-index">380 ml · $ 6.500</span>
               <span className="family-name">Térmicos</span>
               <span className="family-action">Ver colección <ArrowIcon /></span>
             </a>
             <a className="family-card family-secondary family-ferneteros" href="/ferneteros">
               <Image src="/products/catalog/ferneteros/sangre-campeones-frente.webp" alt="Vaso fernetero Sangre de campeones" fill sizes="(max-width: 520px) 100vw, 34vw" />
-              <span className="family-index">700 ml · $ 8.500</span>
+              <span className="family-index">700 ml · $ 10.000</span>
               <span className="family-name">Ferneteros</span>
               <span className="family-action">Ver colección <ArrowIcon /></span>
             </a>
