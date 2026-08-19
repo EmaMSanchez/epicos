@@ -28,7 +28,7 @@ export const products: Product[] = [
     description: "Gráfica clásica en negro sobre una superficie dorada de alto impacto.",
     kind: "Vaso tubo",
     theme: "Clásicos",
-    format: "Vaso tubo 1 L",
+    format: "Vaso tubo vidrio 1 L",
     price: "$ 9.000",
     image: "/products/catalog/vasos-tubo/branca-frente.webp",
     images: [
@@ -42,7 +42,7 @@ export const products: Product[] = [
     description: "Retrato en alto contraste sobre dorado, con el número diez como pieza central.",
     kind: "Vaso tubo",
     theme: "Fútbol",
-    format: "Vaso tubo 1 L",
+    format: "Vaso tubo vidrio 1 L",
     price: "$ 9.000",
     image: "/products/catalog/vasos-tubo/inmortal-frente.webp",
     images: [
@@ -84,7 +84,7 @@ export const products: Product[] = [
     description: "Silueta, bastones celestes y el diez reunidos en un vaso translúcido.",
     kind: "Fernetero",
     theme: "Fútbol",
-    format: "Vaso fernetero 700 ml",
+    format: "Vaso fernetero vidrio 700 ml",
     price: "$ 10.000",
     image: "/products/catalog/ferneteros/messi-argentina-frente.webp",
     images: [
@@ -98,7 +98,7 @@ export const products: Product[] = [
     description: "Celeste pleno con dos gráficas históricas que continúan alrededor del vaso.",
     kind: "Vaso tubo",
     theme: "Fútbol",
-    format: "Vaso tubo 1 L",
+    format: "Vaso tubo vidrio 1 L",
     price: "$ 9.000",
     image: "/products/catalog/vasos-tubo/scudetto-frente.webp",
     images: [
@@ -112,7 +112,7 @@ export const products: Product[] = [
     description: "Banda roja, blanco y negro en una composición vertical de cancha.",
     kind: "Vaso tubo",
     theme: "Fútbol",
-    format: "Vaso tubo 1 L",
+    format: "Vaso tubo vidrio 1 L",
     price: "$ 9.000",
     image: "/products/catalog/vasos-tubo/river-10.webp",
     images: [
@@ -125,7 +125,7 @@ export const products: Product[] = [
     description: "Azul y oro con el número diez ocupando el centro de la pieza.",
     kind: "Vaso tubo",
     theme: "Fútbol",
-    format: "Vaso tubo 1 L",
+    format: "Vaso tubo vidrio 1 L",
     price: "$ 9.000",
     image: "/products/catalog/vasos-tubo/boca-10.webp",
     images: [
@@ -166,7 +166,7 @@ export const products: Product[] = [
     description: "Messi al frente y Diego al dorso, dos campeones reunidos en una misma pieza.",
     kind: "Fernetero",
     theme: "Fútbol",
-    format: "Vaso fernetero 700 ml",
+    format: "Vaso fernetero vidrio 700 ml",
     price: "$ 10.000",
     image: "/products/catalog/ferneteros/sangre-campeones-frente.webp",
     images: [
@@ -180,7 +180,7 @@ export const products: Product[] = [
     description: "Azul intenso y retrato tipográfico en una pieza de gran presencia.",
     kind: "Fernetero",
     theme: "Fútbol",
-    format: "Vaso fernetero 700 ml",
+    format: "Vaso fernetero vidrio 700 ml",
     price: "$ 10.000",
     image: "/products/catalog/ferneteros/messi-azul.webp",
     images: [
@@ -193,7 +193,7 @@ export const products: Product[] = [
     description: "Azul y oro en dos caras inspiradas en la gráfica de camiseta.",
     kind: "Fernetero",
     theme: "Fútbol",
-    format: "Vaso fernetero 700 ml",
+    format: "Vaso fernetero vidrio 700 ml",
     price: "$ 10.000",
     image: "/products/catalog/ferneteros/xeneize-frente.webp",
     images: [
